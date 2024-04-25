@@ -47,16 +47,18 @@ const sendEmailToWinner = async (userEmail, product) => {
   try {
     // Initialize nodemailer transporter
     const transporter = nodemailer.createTransport({
-      service: 'smtp.gmail.com',
-      port : 465,
-      secure: true,
-      auth: {
-        user: 'pbtechworld@gmail.com',
-        pass: 'hfro kamk yduf cht'
-      },
-      tls: {
-        rejectUnauthorized: true, 
-    }
+      service: 'gmail',
+        port: 465, 
+        secure: true,
+        logger:true,
+        debugger:true,
+        secureconnection:false,
+        auth: {
+          user: 'pbtechworld@gmail.com',
+          pass: 'mcye ytvc tikr cuuc'
+        },tls:{
+          rejectUnauthorized:true
+        }
     });
 
     // Compose email message

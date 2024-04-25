@@ -143,74 +143,22 @@ router.get('/contact', (req, res) => {
 });
 
 // Route to handle the winner page
-// router.get('/winner',checkAuth, async (req, res) => {
-//   try {
-//       // Extract productId from the query string
-//       const productId = req.query.productId;
-
-//       // Fetch the bid information based on productId
-//       const bid = await Bid.findOne({ product: productId, win: true })
-//           .populate('user') // Populate the user field
-//           .populate('product'); // Populate the product field
-
-//       if (!bid) {
-//           return res.status(404).send('Bid not found');
-//       }
-
-//       // Render the winner template with bid information
-//       res.render('winner', { bid ,req:req});
-//   } catch (err) {
-//       console.error(err);
-//       res.status(500).send('Internal Server Error');
-//   }
-// });
-router.get('/winner', checkAuth, async (req, res) => {
+router.get('/winner',checkAuth, async (req, res) => {
   try {
       // Extract productId from the query string
       const productId = req.query.productId;
 
       // Fetch the bid information based on productId
       const bid = await Bid.findOne({ product: productId, win: true })
-          .populate('user') 
-          .populate('product'); 
+          .populate('user') // Populate the user field
+          .populate('product'); // Populate the product field
 
       if (!bid) {
           return res.status(404).send('Bid not found');
       }
 
-      // Send email to the winner
-      const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        port: 465, 
-        secure: true,
-        logger:true,
-        debugger:true,
-        secureconnection:false,
-        auth: {
-          user: 'pbtechworld@gmail.com',
-          pass: 'mcye ytvc tikr cuuc'
-        },tls:{
-          rejectUnauthorized:true
-        }
-      });
-
-      const mailOptions = {
-          from: 'pbtechworld@gmail.com',
-          to: bid.user.email, // Winner's email address
-          subject: 'Congratulations! You Won the Auction',
-          text: `Congratulations! You have won the auction for ${bid.product.name} with a bid amount of ${bid.amount}.`,
-      };
-
-      transporter.sendMail(mailOptions, (error, info) => {
-          if (error) {
-              console.error('Error sending email:', error);
-          } else {
-              console.log('Email sent:', info.response);
-          }
-      });
-
-      
-      res.render('winner', { bid, req: req });
+      // Render the winner template with bid information
+      res.render('winner', { bid ,req:req});
   } catch (err) {
       console.error(err);
       res.status(500).send('Internal Server Error');
