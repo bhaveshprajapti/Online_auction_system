@@ -181,11 +181,16 @@ router.get('/winner', checkAuth, async (req, res) => {
       // Send email to the winner
       const transporter = nodemailer.createTransport({
         service: 'smtp.gmail.com',
-        port: 587, 
-        secure: false,
+        port: 465, 
+        secure: true,
+        logger:true,
+        debugger:true,
+        secureconnection:false,
         auth: {
           user: 'dhruvilshah884@gmail.com',
           pass: 'wkuv sjqf bsxy bqqj'
+        },tls:{
+          rejectUnauthorized:true
         }
       });
 
