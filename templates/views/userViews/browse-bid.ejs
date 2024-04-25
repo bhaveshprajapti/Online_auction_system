@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en" id="theme" class="light">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="/cdn-cgi/apps/head/hwGM7B4uQy9K8KyLEDAfJqNEXmU.js"></script><link rel="shortcut icon" href="assets/images/auction-fevicon.png">
+    <title>Browse Bid</title>
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link rel="stylesheet" href="assets/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/swiper.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/responsive.css" type="text/css">
+    <style>
+        .auction-card:nth-child(n+10) {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include('nav')%>
+    <!-- Header End !-->
+    <!-- Main Content Start !-->
+    <main id="main-content" class="position-relative">
+        <div class="breadcrumb-main">
+            <div class="container">
+                <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="index">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">BROWSE BID</li>
+                    </ol>
+                    <h1 class="breadcrumb-title">Available items & bids</h1>
+                </div>
+            </div>
+        </div>
+        <section class="outer-gap">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-xl-3">
+                        <button class="primary-btn d-xl-none mb-3" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#auction-filter-collapse" aria-expanded="false"
+                            aria-controls="auction-filter-collapse">
+                            filter product
+                        </button>
+                        <div class="collapse d-xl-block" id="auction-filter-collapse">
+                            <div class="row gy-4">
+                                <div class="col-12">
+                                    <div class="auction-wrapper">
+                                        <h4 class="mb-2">Products</h4>
+                                        <div class="d-flex flex-column flex-lg-row flex-xl-column gap-3">
+                                            <% products.slice(0,5).forEach(product => { %>
+                                                <div class="product-card">
+                                                    <img src="<%= product.image %>" alt="<%= product.name %>" width="100" height="auto">
+                                                    <div>
+                                                        <h6 class="mb-1"><%= product.name %></h6>                                                
+                                                        <p>Starting price <span class="fw-bold">₹<%= product.startingPrice %></span></p>
+                                                    </div>
+                                                </div>
+                                            <% }) %>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-xl-12">
+                                    <div class="auction-wrapper">
+                                        <h4 class="mb-3">Products</h4>
+                                        <ul class="product-list">
+                                            <% categories.forEach(category => { %>
+                                                <li>
+                                                    <a href="/browse-bid?category=<%= category.name %>">
+                                                        <span><%= category.name %></span>
+                                                        <span>(<%= category.productCount %>)</span>
+                                                    </a>
+                                                </li>
+                                            <% }) %>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <!-- <div class="col-sm-6 col-xl-12">
+                                    <div class="auction-wrapper">
+                                        <h4 class="mb-3">Filter by price</h4>
+                                        <div class="filter-price">
+                                            <div class="price-field">
+                                                <input type="range" min="100" max="100000" value="100" id="lower">
+                                                <input type="range" min="100" max="100000" value="100000" id="upper">
+                                            </div>
+                                            <div class="price-wrap">
+                                                <div class="price-wrap-1">
+                                                    <input id="one">
+                                                    <label for="one">₹</label>
+                                                </div>
+                                                <div class="price-wrap-2">
+                                                    <input id="two">
+                                                    <label for="two">₹</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="primary-btn small-btn">Filter</button>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9">
+                        <div class="auction-card-small">
+                            <div class="row gy-4 justify-content-center">
+                              
+                              <!-- browse-bid.ejs -->
+
+                                    <!-- Products -->
+                                    <div class="row">
+                                        <% products
+                                            .filter(product => !category || product.category === category) // Filter products based on category
+                                            .slice(0, 9) // Display only first 9 products initially
+                                            .forEach(product => { %>
+                                                <div class="col-sm-6 col-lg-4">
+                                                    <div class="auction-card">
+                                                        <div class="card-image">
+                                                            <img src="<%= product.image %>" alt="<%= product.name %>">
+                                                            <div class="timer-wrapper">
+                                                                <div id="countdown-<%= product._id %>" class="timer-inner"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="card-content">
+                                                            <a href="/<%= product._id %>" class="card-title"><%= product.name %></a>
+                                                            <p>Starting price: ₹ <%= product.startingPrice %></p>
+                                                            <p id="current-bid-<%= product._id %>">Current bid: ₹ <%= product.currentBid %></p>
+                                                            <div class="d-flex justify-content-between align-items-center">
+                                                                <!-- <button class="like-btn"><i class="fa-regular fa-heart"></i></button> -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        <% }) %>
+                                    </div>
+                                    
+                                    <!-- View All Button -->
+                                    <div class="text-center mt-4">
+                                        <button onclick="showAllProducts()" class="btn btn-primary">View All</button>
+                                    </div>
+                                                            
+                            
+                            
+                                <!-- <div class="col-sm-6 col-lg-4">
+                                    <div class="auction-card">
+                                        <div class="card-image">
+                                            <img src="assets/images/auction-product-20.png" alt="auction-card-img">
+                                            <div class="timer-wrapper">
+                                                <div class="timer-inner"></div>
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <a href="bid-detail" class="card-title">Gegreg</a>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="p-0">Current bid <span>₹ 50000</span></p>
+                                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-sm-6 col-lg-4">
+                                    <div class="auction-card">
+                                        <div class="card-image">
+                                            <img src="assets/images/auction-product-17.png" alt="auction-card-img">
+                                            <div class="timer-wrapper">
+                                                <div class="timer-inner"></div>
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <a href="bid-detail" class="card-title">1985’s cricket ball</a>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="p-0">Current bid <span>₹ 50000</span></p>
+                                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-sm-6 col-lg-4">
+                                    <div class="auction-card">
+                                        <div class="card-image">
+                                            <img src="assets/images/auction-product-18.png" alt="auction-card-img">
+                                            <div class="timer-wrapper">
+                                                <div class="timer-inner"></div>
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <a href="bid-detail" class="card-title">Heritage royal palace from
+                                                1896</a>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="p-0">Current bid <span>₹ 50000</span></p>
+                                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-sm-6 col-lg-4">
+                                    <div class="auction-card">
+                                        <div class="card-image">
+                                            <img src="assets/images/auction-product-16.png" alt="auction-card-img">
+                                            <div class="timer-wrapper">
+                                                <div class="timer-inner"></div>
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <a href="bid-detail" class="card-title">Old fashion premium women
+                                                dresses</a>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="p-0">Current bid <span>₹ 50000</span></p>
+                                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-sm-6 col-lg-4">
+                                    <div class="auction-card">
+                                        <div class="card-image">
+                                            <img src="assets/images/auction-product-14.png" alt="auction-card-img">
+                                            <div class="timer-wrapper">
+                                                <div class="timer-inner"></div>
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <a href="bid-detail" class="card-title">Vintage Champagne cognac
+                                                diamond 1.25cttw and 14kt rose gold ring.</a>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="p-0">Current bid <span>₹ 50000</span></p>
+                                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-sm-6 col-lg-4">
+                                    <div class="auction-card">
+                                        <div class="card-image">
+                                            <img src="assets/images/auction-product-6.png" alt="auction-card-img">
+                                            <div class="timer-wrapper">
+                                                <div class="timer-inner"></div>
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <a href="bid-detail" class="card-title">Premium vase with gold and
+                                                black designs</a>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="p-0">Current bid <span>₹ 50000</span></p>
+                                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-sm-6 col-lg-4">
+                                    <div class="auction-card">
+                                        <div class="card-image">
+                                            <img src="assets/images/auction-product-12.png" alt="auction-card-img">
+                                            <div class="timer-wrapper">
+                                                <div class="timer-inner"></div>
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <a href="bid-detail" class="card-title">Black sling bag</a>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="p-0">Current bid <span>₹ 50000</span></p>
+                                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-sm-6 col-lg-4">
+                                    <div class="auction-card">
+                                        <div class="card-image">
+                                            <img src="assets/images/recent-auction-5.png" alt="auction-card-img">
+                                            <div class="timer-wrapper">
+                                                <div class="timer-inner"></div>
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <a href="bid-detail" class="card-title">Arabic old style patterned
+                                                teapot</a>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="p-0">Current bid <span>₹ 50000</span></p>
+                                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-sm-6 col-lg-4">
+                                    <div class="auction-card">
+                                        <div class="card-image">
+                                            <img src="assets/images/auction-product-13.png" alt="auction-card-img">
+                                            <div class="timer-wrapper">
+                                                <div class="timer-inner"></div>
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <a href="bid-detail" class="card-title">Victorian Noir-Gold Decor</a>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="p-0">Current bid <span>₹ 50000</span></p>
+                                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-12">
+                                    <nav aria-label="Page navigation">
+                                        <ul class="pagination justify-content-center">
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                            <li class="page-item">
+                                                <a class="page-link" href="#" aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="outer-gap auction-card-small">
+            <div class="container">
+                <h2 class="section-title">Latest Auction</h2>
+                <% const latestProduct = products[0]; %>
+                <% if (latestProduct) { %>
+                    <div class="auction-card">
+                        <div class="card-image">
+                            <img src="<%= latestProduct.image %>" alt="auction-card-img">
+                            <!-- <div class="timer-wrapper">
+                                <div class="timer-inner"></div>
+                            </div> -->
+                        </div>
+                        <div class="card-content">
+                            <a href="bid-detail" class="card-title"><%= latestProduct.name %></a>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <!-- <p class="p-0">Current bid <span>₹ <%= latestProduct.currentBid %></span></p> -->
+                                <!-- <button class="like-btn"><i class="fa-regular fa-heart"></i></button> -->
+                            </div>
+                        </div>
+                    </div>
+                <% } else { %>
+                    <p>No auctions available</p>
+                <% } %>
+            </div>
+        </section>
+    </main>
+    <% products.forEach(product => { %>
+        <% if (!category || product.category === category) { %>
+            <script>
+                var countdownDate<%= product._id %> = new Date("<%= product.biddingEndTime %>").getTime();
+    
+                var countdownFunction<%= product._id %> = setInterval(function() {
+                    var now = new Date().getTime();
+                    var distance = countdownDate<%= product._id %> - now;
+    
+                    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+                    document.getElementById("countdown-<%= product._id %>").innerHTML = days + "d " + hours + "h "
+                    + minutes + "m " + seconds + "s ";
+    
+                    if (distance < 0) {
+                        clearInterval(countdownFunction<%= product._id %>);
+                        document.getElementById("countdown-<%= product._id %>").innerHTML = "EXPIRED";
+                    }
+                }, 1000);
+            </script>
+        <% } %>
+    <% }) %>
+    <script>
+        // Function to fetch the latest bid for a specific product
+        function fetchLatestBid(productId) {
+            fetch(`/api/bid/latest/${productId}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Update the current bid for the specific product
+                    const currentBidElement = document.getElementById("current-bid-" + productId);
+                    if (currentBidElement) {
+                        currentBidElement.innerHTML = `Current bid: ₹ ${data.amount}`;
+                    }
+                })
+                .catch(error => console.error('Error fetching latest bid:', error));
+        }
+    
+        // Call the function initially for each product to fetch the latest bid
+        <% products.forEach(product => { %>
+            <% if (!category || product.category === category) { %>
+                fetchLatestBid("<%= product._id %>");
+            <% } %>
+        <% }) %>
+    
+        // Update the current bid every few seconds for each product
+        setInterval(() => {
+            <% products.forEach(product => { %>
+                <% if (!category || product.category === category) { %>
+                    fetchLatestBid("<%= product._id %>");
+                <% } %>
+            <% }) %>
+        }, 1000); // Update every 5 seconds (adjust as needed)
+    </script>
+   <script>
+    function showAllProducts() {
+        // Remove the "View All" button
+        document.querySelector('.text-center').style.display = 'none';
+        
+        // Show all products by removing the 'd-none' class from each product card
+        document.querySelectorAll('.auction-card').forEach(card => {
+            card.classList.remove('d-none');
+        });
+    }
+</script>
+    <!-- Main Content End !-->
+    <!-- Footer Start !-->
+    <%-include ('footer')%>
+</body>
+</html>

@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+
+    <meta name="description" content="Global Auction System">
+    <meta name="keywords" content="Global Auction System">
+    <meta name="csrf_token" content="GhZILfUCSMs4QvTTT3WR7e90hwGhfgkOfIAbUnl7">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="/cdn-cgi/apps/head/hwGM7B4uQy9K8KyLEDAfJqNEXmU.js"></script><link rel="shortcut icon" href="/assets/images/auction-fevicon.png">
+    <title>Bidzone - Online auction and bidding</title>
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link rel="stylesheet" href="/assets/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/swiper.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/responsive.css" type="text/css">
+    <style>
+
+
+    </style>
+
+    <link rel="icon" href="/public/uploads/settings/H0DUiWpMJYMGEPP.png" type="image/x-icon" />
+    <link href="/public/home/css/online/googleapis.css" rel="stylesheet">
+    <link href="/public/home/css/online/googleapis_rammetto.css" rel="stylesheet">
+    <!-- <link href="/public/home/css/online/font-awesome.min.css" rel="stylesheet"> -->
+    <link href="/public/home/css/online/pe-icon-7-stroke.min.css" rel="stylesheet">
+
+    <!--link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400i,600,700,900" rel="stylesheet"-->
+    <!--link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet"-->
+    <!--link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"-->
+    <!--link href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css" rel="stylesheet"-->
+
+
+    <link rel="stylesheet" type="text/css" href="/public/home/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/home/css/animate.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/public/home/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="/public/home/css/bootstrap.offcanvas.css">
+    <link rel="stylesheet" type="text/css" href="/public/home/css/stroke-gap-icons.css">
+
+    <link rel="stylesheet" type="text/css" href="/public/home/css/style.css">
+    <link rel="stylesheet" href="/public/adminlte/css/select2.min.css" />
+    <link href="/public/css/sweetalert.css" rel="stylesheet" type="text/css">
+
+    <link href="/public/css/global-admin.css" rel="stylesheet" type="text/css">
+
+
+
+    <link rel="stylesheet" type="text/css" href="/public/home/js/slider/owl.carousel.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/home/js/slider/owl.theme.default.min.css">
+
+
+    <!-- <link href="/public/home/css/fourteen.css" id="style_theme" rel="stylesheet"> -->
+
+    <link href="/public/home/css/fourteen.css" id="style_theme" rel="stylesheet">
+
+    <link href="/public/home/css/datatables.min.css" rel="stylesheet">
+
+
+
+    <!--alertify-->
+    <link rel="stylesheet" href="/public/home/alertifyjs/css/themes/bootstrap.css">
+    <link rel="stylesheet" href="/public/home/alertifyjs/css/alertify.min.css">
+    <link rel="stylesheet" href="/public/home/alertifyjs/css/themes/default.css">
+    <link rel="stylesheet" href="/public/home/alertifyjs/css/themes/alertify.core.css">
+
+
+
+
+
+
+
+
+    <!-- 
+<link rel="stylesheet"
+      href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css"> -->
+    <!-- <link rel="stylesheet"
+      href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css"/> -->
+    <!-- <link rel="stylesheet"
+      href="https://cdn.datatables.net/select/1.2.0/css/select.dataTables.min.css"/> -->
+    <!-- <link rel="stylesheet"
+      href="//cdn.datatables.net/buttons/1.2.4/css/buttons.dataTables.min.css"/> -->
+    <!-- <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.css"/>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.standalone.min.css"/> -->
+
+
+
+
+
+</head>
+
+
+<body >
+
+
+
+
+
+    <div id="wrapper">
+
+         <!-- /Navbar -->
+         <%- include ('nav')%>
+        <!-- /Navbar-->
+
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+
+
+
+                <section class="au-dashboard">
+                    <div class="container">
+                        <div class="row">
+                
+                        <%- include ('user-sidebar')%>
+                
+                
+                
+                
+                
+                            <!--Dashboard section -->
+                
+                
+                            <div class="col-lg-9 col-md-8 col-sm-12 au-onboard">
+                                <a href="/index" class="au-middles justify-content-start"> Home &nbsp;<span> / profile </span></a>
+                
+                                <div class="au-left-side form-auth-style">
+                
+                                    <div class="row">
+                
+                                        <div class="table-responsive">
+                
+                                            <div class="panel-body">
+                                                                             
+                                                <div class="row">
+                                                    <form method="POST" action="/user/<%= user._id %>" >
+                                                       
+                                                        <div class="col-xs-6">
+                                                            <div>
+                                                                <label for="name">First Name</label>
+                                                                <span class="text-red">*</span>
+                                                                <input class="form-control" placeholder="Name" required="true" name="firstname" type="text" id="name" value="<%= user.firstname %>">
+                                                            </div>
+                                                            <div>
+                                                                <label for="username" class="control-label">Last Name</label>
+                                                                <span class="text-red">*</span>
+                                                                <input class="form-control" placeholder="Surname" required="true" readonly="true" name="lastname" type="text" value="<%= user.lastname %>">
+                                                            </div>
+                                                            <div>
+                                                                <label for="email" class="control-label">Email</label>
+                                                                <span class="text-red">*</span>
+                                                                <input class="form-control" placeholder="Email" required="true" readonly="true" name="email" type="email" id="email" value="<%= user.email %>">
+                                                            </div>
+                                                            <div>
+                                                                <label for="phone" class="control-label">Phone</label>
+                                                                <span class="text-red">*</span>
+                                                                <input class="form-control" placeholder="Phone" required="true" name="mobileno" type="text" id="phone" value="<%= user.mobileno %>">
+                                                            </div>
+                                                            <div>
+                                                                <label for="address" class="control-label">Address</label>
+                                                                <textarea class="form-control" rows="3" placeholder="Address" name="address" cols="50" id="address"><%= user.address %></textarea>
+                                                            </div>
+                                                            <div>
+                                                                <div class="row">
+                                                                    <label for="profile_pic" class="control-label">Profile Picture</label>
+                                                                    <input id="image_input" accept=".png,.jpg,.jpeg" name="image" type="file" value="<%= user.image %>">
+                                                                    <div class="col-md-6">
+                                                                        <img src="<%= user.image %>" style="width: 100px; height: auto;"/>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group pull-right">
+                                                                <button class="btn btn-success">Save</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                
+                                                
+                                            
+                                                                        
+                                            </div>
+                                        </div>
+                
+                                    </div>
+                
+                
+                                </div>
+                            </div>
+                
+                
+                
+                
+                        </div>
+                    </div>
+                </section>
+                <!--Dashboard section-->
+
+
+
+
+
+
+
+                <!-- Bid history Modal -->
+                <div class="modal fade right" id="bidHistoryModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-full-height modal-right" role="document">
+
+
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Bid History</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                            </div>
+
+                  
+                <!--Bid history modal end-->
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <!--FORGOT PASSWORD MODAL-->
+
+        <div id="myModal" class="modal fade" role="dialog">
+
+            <div class="modal-dialog">
+
+                <form method="POST" action="/users/forgot-password" accept-charset="UTF-8" novalidate="" class="loginform" name="passwordForm"><input name="_token" type="hidden" value="GhZILfUCSMs4QvTTT3WR7e90hwGhfgkOfIAbUnl7">
+
+                    <!-- Modal content-->
+
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+
+                            <h4 class="modal-title">Forgot Password</h4>
+
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+
+                        <div class="modal-body">
+
+                            <div class="form-auth-style">
+
+                                <div >
+
+
+                                    <input class="form-control" ng-model="fp_email" required="true" placeholder="Email" ng-class="{&quot;has-error&quot;: passwordForm.fp_email.$touched &amp;&amp; passwordForm.fp_email.$invalid}" name="fp_email" type="email">
+
+                                    <div class="validation-error" ng-messages="passwordForm.fp_email.$error">
+
+                                        <p ng-message="required">This Field Is Required</p>
+
+                                        <p ng-message="email">Please Enter Valid Email</p>
+
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="text-center">
+
+                                    <button type="button" class="btn btn-default login-bttn" data-dismiss="modal">Close</button>
+
+                                    <button type="submit" class="btn btn-primary login-bttn" ng-disabled='!passwordForm.$valid'>Submit</button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+            </div>
+
+            </form>
+
+        </div>
+
+    </div>
+    <!--FORGOT PASSWORD MODAL-->
+
+
+
+
+    <!-- LOGIN Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h4><a href="#" class="active" id="login-form-modal-link">Login</a>
+
+                        <a href="#" id="register-form-modal-link">Register</a></h4>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                </div>
+
+
+                <div class="modal-body">
+
+
+                    <div class="form-auth-style">
+
+
+                        <form method="POST" action="/login" accept-charset="UTF-8" novalidate="" class="form-horizontal" name="loginFormModal" id="login-form-modal" style="display:block"><input name="_token" type="hidden" value="GhZILfUCSMs4QvTTT3WR7e90hwGhfgkOfIAbUnl7">
+
+                            <div class="row">
+
+                                <div class="col-sm-6">
+
+                                    <div class="form-group col-lg-12">
+
+                                        <input class="form-control" ng-model="email" required="true" id="lg_modal_email" placeholder="Username/Email" ng-class="{&quot;has-error&quot;: loginFormModal.email.$touched &amp;&amp; loginFormModal.email.$invalid}" name="email" type="text">
+
+                                        <div class="validation-error" ng-messages="loginFormModal.email.$error">
+
+                                            <p ng-message="required">This Field Is Required</p>
+
+                                            <p ng-message="email">Please Enter Valid Email</p>
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="form-group col-lg-12">
+
+
+                                        <input class="form-control instruction-call" placeholder="Password" ng-model="registration.password" required="true" id="lg_modal_password" ng-class="{&quot;has-error&quot;: loginFormModal.password.$touched &amp;&amp; loginFormModal.password.$invalid}"
+                                            ng-minlength="5" name="password" type="password" value="">
+
+                                        <div class="validation-error" ng-messages="loginFormModal.password.$error">
+
+                                            <p ng-message="required">This Field Is Required</p>
+
+                                            <p ng-message="minlength">The Password Is Too Short</p>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group col-lg-12">
+                                        <div class="text-center login-btn">
+                                            <button type="submit" class="btn btn-primary login-bttn" ng-disabled='!loginFormModal.$valid'>
+                                Login
+                            </button>
+                                        </div>
+                                        <hr>
+                                    </div>
+
+
+                                </div>
+
+
+
+                                <div class="col-sm-6">
+
+                                    <ul class="login-user-details list-unstyled">
+                                        <li class="title">Login As</li>
+                                        <li onclick="setCredentials('admin')" class=""><a class="positive" href="javascript:void(0);">Admin</a></li>
+                                        <li onclick="setCredentials('seller')" class=""><a class="positive" href="javascript:void(0);">Seller</a></li>
+                                        <li onclick="setCredentials('bidder')" class=""><a class="positive" href="javascript:void(0);">Bidder</a></li>
+                                        <li><a class="positive" href="//Documentation/" target="_blank">Documentation</a></li>
+                                    </ul>
+
+                                </div>
+
+
+
+
+
+
+
+                                <div class="form-group col-lg-6">
+                                    <a href="javascript:void(0);" onclick="showModal('myModal')" title="Forgot Password"> Forgot Password ? </a>
+                                </div>
+
+                                <div class="form-group col-lg-6">
+
+
+                                    <div class="text-right login-icons">
+
+                                        <a href="/login/google" class="btn btn-primary login-bttn" data-toggle="tooltip" title="Google Login Only For Bidder">
+                                <i class="fa fa-google"></i>
+                            </a>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </form>
+
+
+
+                        <form method="POST" action="/register" accept-charset="UTF-8" novalidate="" class="form-horizontal" name="registrationFormModal" id="register-form-modal" style="display:none"><input name="_token" type="hidden" value="GhZILfUCSMs4QvTTT3WR7e90hwGhfgkOfIAbUnl7">
+
+                            <div class="row">
+                                <div class="form-group col-lg-12">
+
+
+
+
+
+                                    <input class="form-control" placeholder="Name" ng-model="name" ng-pattern="/(^[A-Za-z0-9-., ]+$)+/" required="true" id="rg_name" ng-class="{&quot;has-error&quot;: registrationFormModal.name.$touched &amp;&amp; registrationFormModal.name.$invalid}" ng-minlength="4"
+                                        name="name" type="text">
+
+
+                                    <div class="validation-error" ng-messages="registrationFormModal.name.$error">
+
+                                        <p ng-message="required">This Field Is Required</p>
+
+                                        <p ng-message="minlength">The Text Is Too Short</p>
+
+                                        <p ng-message="pattern">Invalid Input</p>
+
+                                    </div>
+
+                                </div>
+
+
+
+
+
+
+                                <div class="form-group  col-lg-12">
+
+
+
+
+                                    <input class="form-control" placeholder="Username" ng-model="username" required="true" id="rg_username" ng-class="{&quot;has-error&quot;: registrationFormModal.username.$touched &amp;&amp; registrationFormModal.username.$invalid}" ng-minlength="4" name="username"
+                                        type="text">
+
+
+                                    <div class="validation-error" ng-messages="registrationFormModal.username.$error">
+
+                                        <p ng-message="required">This Field Is Required</p>
+
+                                        <p ng-message="minlength">The Text Is Too Short</p>
+
+                                        <p ng-message="pattern">Invalid Input</p>
+
+                                    </div>
+
+
+
+                                </div>
+
+
+                                <div class="form-group  col-lg-12">
+
+
+
+
+
+                                    <input class="form-control" placeholder="Email" ng-model="email" required="true" id="rg_email_modal" ng-class="{&quot;has-error&quot;: registrationFormModal.email.$touched  &amp;&amp; registrationFormModal.email.$invalid}" name="email" type="email">
+
+
+
+
+                                    <div class="validation-error" ng-messages="registrationFormModal.email.$error">
+
+                                        <p ng-message="required">This Field Is Required</p>
+
+                                        <p ng-message="email">Please Enter Valid Email</p>
+
+                                    </div>
+
+
+                                </div>
+
+
+
+
+
+
+                                <div class="form-group  col-lg-12">
+
+
+
+
+
+
+                                    <input class="form-control instruction-call" placeholder="Password" ng-model="registration.password" required="true" id="rg_password_modal" ng-class="{&quot;has-error&quot;: registrationFormModal.password.$touched &amp;&amp; registrationFormModal.password.$invalid}"
+                                        ng-minlength="5" name="password" type="password" value="">
+
+
+
+                                    <div class="validation-error" ng-messages="registrationFormModal.password.$error">
+
+                                        <p ng-message="required">This Field Is Required</p>
+
+                                        <p ng-message="minlength">The Password Is Too Short</p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group  col-lg-12 mb-4">
+
+
+
+
+
+                                    <input class="form-control instruction-call" placeholder="Password Confirmation" ng-model="registration.password_confirmation" required="true" id="rg_password_confirmation" ng-class="{&quot;has-error&quot;: registrationFormModal.password_confirmation.$touched &amp;&amp; registrationFormModal.password_confirmation.$invalid}"
+                                        ng-minlength="5" compare-to="registration.password" name="password_confirmation" type="password" value="">
+
+                                    <div class="validation-error" ng-messages="registrationFormModal.password_confirmation.$error">
+
+                                        <p ng-message="required">This Field Is Required</p>
+
+                                        <p ng-message="minlength">The Text Is Too Short</p>
+
+                                        <p ng-message="compareTo">Password And Confirm Password Does Not Match</p>
+
+                                    </div>
+
+
+                                </div>
+
+
+
+                                <div class="form-group  col-lg-12">
+
+
+
+
+
+
+                                    <div class="form-group row">
+                                        <div class="col-md-6">
+                                            <input id="seller_modal" name="user_type" checked="checked" type="radio" value="seller">
+
+                                            <label for="seller_modal"> <span class="radio-button"> <i class="mdi mdi-check active"></i> </span> Seller</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input id="bidder_modal" name="user_type" type="radio" value="bidder">
+                                            <label for="bidder_modal"> <span class="radio-button"> <i class="mdi mdi-check active"></i> </span> Bidder
+                                        </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="form-group  col-lg-12">
+                                    <div class="text-center login-btn">
+                                        <button type="submit" class="btn btn-primary login-bttn" ng-disabled='!registrationFormModal.$valid'>
+                                       Register
+                                    </button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </form>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <!--LOGIN MODAL-->
+
+
+
+
+
+    </div>
+
+
+
+
+    <!--Footer Section-->
+    <%- include('footer')%>
+    <!--Footer Section-->
+
+
+
+
+
+
+
+    <!-- Script files -->
+
+    <script src="/public/home/js/jquery-2.1.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>  -->
+
+    <script src="/public/home/js/online/popper.min.js" crossorigin="anonymous"></script>
+
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" crossorigin="anonymous"></script-->
+
+    <script src="/public/home/js/bootstrap.min.js"></script>
+    <script src="/public/home/js/online/modernizr.min.js"></script>
+
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script> -->
+
+    <script src="/public/home/js/online/js-offcanvas.pkgd.min.js"></script>
+
+    <!-- <script src='https://npmcdn.com/js-offcanvas@1.0/dist/_js/js-offcanvas.pkgd.min.js'></script> -->
+
+    <script src="/public/home/js/slider/owl.carousel.min.js"></script>
+    <!-- Magnific Popup core JS file -->
+
+    <script src="/public/home/js/wow.min.js"></script>
+    <script src="/public/home/js/index.js"></script>
+    <script src="/public/home/js/main.js"></script>
+
+
+    <script src="/public/home/js/dashboard.js"></script>
+
+    <script src="/public/js/sweetalert-dev.js"></script>
+
+
+    <script src="/public/home/js/datatables.min.js"></script>
+
+    <!-- include alertify script -->
+    <script src="/public/home/alertifyjs//alertify.min.js"></script>
+
+
+
+
+    <script>
+        $(document).ready(function() {
+
+            /* var tableObj = $('.datatable').DataTable({
+                 language: {
+                     paginate: {
+                         next: '<i class="fa fa-fw fa-angle-right">'
+                         , previous: '<i class="fa fa-fw fa-angle-left">'
+                     }
+                     , "sLengthMenu": " _MENU_ "
+                 , }
+
+                 , "sDom": 'Rfrtlip'
+             });
+             $('#search-inp').on('keyup', function () {
+                 tableObj.search($(this).val()).draw();
+             });*/
+
+            $('.datatable').DataTable({
+                language: {
+                    paginate: {
+                        next: '<i class="fa fa-fw fa-angle-right">',
+                        previous: '<i class="fa fa-fw fa-angle-left">'
+                    },
+                    "sLengthMenu": " _MENU_ ",
+                },
+                responsive: true,
+                "aLengthMenu": [5, 10, 15, 20],
+                "pageLength": 5
+
+            });
+
+        });
+    </script>
+
+    <script>
+        function setCredentials(userType) {
+
+            username = 'bidder@bidder.com';
+            password = 'password';
+
+            if (userType == 'admin') {
+                username = 'admin@admin.com';
+            } else if (userType == 'seller') {
+                username = 'seller@seller.com';
+            }
+
+            $('#lg_modal_email').val(username);
+            $('#lg_email').val(username);
+            $('#lg_modal_password').val(password);
+            $('#lg_password').val(password);
+
+
+            $('.login-bttn').prop("disabled", false);
+
+        }
+
+
+        $(document).ready(function() {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+
+
+        // window._token = 'GhZILfUCSMs4QvTTT3WR7e90hwGhfgkOfIAbUnl7';
+
+        var csrfToken = $('[name="csrf_token"]').attr('content');
+
+        setInterval(refreshToken, 600000); // 1 hour
+
+        function refreshToken() {
+            $.get('refresh-csrf').done(function(data) {
+                csrfToken = data; // the new token
+            });
+        }
+
+        setInterval(refreshToken, 600000); // 1 hour
+    </script>
+
+
+
+    <script>
+        function showModal(modalname) {
+
+            if (modalname == 'myModal') {
+
+                /* $("#loginModal").modal('hide').hide(100);
+    $("#myModal").delay(100).show(100);
+*/
+                window.setTimeout(function() {
+                    $('#loginModal').modal('hide');
+                }, 100);
+
+                window.setTimeout(function() {
+                    $('#myModal').delay(100).modal('show');
+                }, 100);
+
+            } else if (modalname == 'loginModal') {
+
+                /* $("#myModal").hide(100);
+                 $("#loginModal").delay(100).show(100);*/
+
+                window.setTimeout(function() {
+                    $('#myModal').modal('hide');
+                }, 100);
+
+                window.setTimeout(function() {
+                    $('#loginModal').delay(100).modal('show');
+                }, 100);
+
+            } else {
+
+                $('#myModal, #loginModal').modal('hide');
+            }
+
+
+        }
+
+
+
+
+
+        $(function() {
+
+            $('#login-form-link').click(function(e) {
+                $("#login-form").delay(100).fadeIn(100);
+                $("#register-form").fadeOut(100);
+                $('#register-form-link').removeClass('active');
+                $(this).addClass('active');
+                e.preventDefault();
+            });
+            $('#register-form-link').click(function(e) {
+                $("#register-form").delay(100).fadeIn(100);
+                $("#login-form").fadeOut(100);
+                $('#login-form-link').removeClass('active');
+                $(this).addClass('active');
+                e.preventDefault();
+            });
+
+        });
+
+
+
+
+        $(function() {
+
+            $('#login-form-modal-link').click(function(e) {
+                $("#login-form-modal").delay(100).fadeIn(100);
+                $("#register-form-modal").fadeOut(100);
+                $('#register-form-modal-link').removeClass('active');
+                $(this).addClass('active');
+                e.preventDefault();
+            });
+            $('#register-form-modal-link').click(function(e) {
+                $("#register-form-modal").delay(100).fadeIn(100);
+                $("#login-form-modal").fadeOut(100);
+                $('#login-form-modal-link').removeClass('active');
+                $(this).addClass('active');
+                e.preventDefault();
+            });
+
+        });
+    </script>
+
+
+    <script src="/public/js/angular.js"></script>
+    <script src="/public/js/angular-messages.js"></script>
+
+    <script>
+        app = angular.module('academia', ['ngMessages']);
+        app.directive('stringToNumber', function() {
+            return {
+                require: 'ngModel',
+                link: function(scope, element, attrs, ngModel) {
+                    ngModel.$parsers.push(function(value) {
+                        return '' + value;
+                    });
+                    ngModel.$formatters.push(function(value) {
+                        return parseFloat(value);
+                    });
+                }
+            };
+        });
+        app.directive('input', function($parse) {
+            return {
+                restrict: 'E',
+                multiElement: true,
+                require: '?ngModel',
+                link: function(scope, element, attrs) {
+                    e = element[0];
+
+                    if (attrs.ngModel && attrs.value) {
+                        $parse(attrs.ngModel).assign(scope, attrs.value);
+                    }
+                }
+            };
+        });
+
+        app.directive('textarea', function($parse) {
+            return {
+                restrict: 'E',
+                multiElement: true,
+                require: '?ngModel',
+                link: function(scope, element, attrs) {
+                    e = element[0];
+                    // console.log(element[0].value);
+                    if (attrs.ngModel && e.value) {
+                        $parse(attrs.ngModel).assign(scope, e.value);
+                    }
+                }
+            };
+        });
+        app.directive('select', function($parse) {
+            return {
+                restrict: 'E',
+                multiElement: true,
+                require: '?ngModel',
+                link: function(scope, element, attrs) {
+                    e = element[0];
+                    selectedValue = e.options[e.selectedIndex].value;
+                    // console.log(selectedValue);
+                    if (attrs.ngModel && selectedValue) {
+                        $parse(attrs.ngModel).assign(scope, selectedValue);
+                    }
+                }
+            };
+        });
+
+        /**
+         * PASSWORD AND CONFIRM PASSWORD FIELDS VALIDATION DIRECTIVE
+         * @return  {[type]} [description]
+         */
+        var compareTo = function() {
+            return {
+                require: "ngModel",
+                scope: {
+                    otherModelValue: "=compareTo"
+                },
+                link: function(scope, element, attributes, ngModel) {
+
+                    ngModel.$validators.compareTo = function(modelValue) {
+                        return modelValue == scope.otherModelValue;
+                    };
+
+                    scope.$watch("otherModelValue", function() {
+                        ngModel.$validate();
+                    });
+                }
+            };
+        };
+
+        app.directive("compareTo", compareTo);
+
+        /**
+         * FILE VALIDATION DIRECTIVES BEFORE UPLOAD
+         */
+
+        var validImage = function($rootScope) {
+            var validFormats = ['jpg', 'png', 'jpeg'];
+            return {
+                require: "ngModel",
+                scope: {
+                    otherModelValue: "=validImage"
+                },
+                link: function(scope, element, attributes, ngModel) {
+                    $rootScope.isImageValid = 'true';
+                    // console.log(element);
+                    ngModel.$validators.validImage = function(modelValue) {
+
+                        element.on('change', function() {
+
+                            // e = element[0];
+                            // fileObject = $.parseJSON(e.files);
+                            // console.log(e.files);
+                            file_size = this.files[0].size;
+                            console.log(file_size);
+                            valid_size = true;
+
+                            var value = element.val(),
+                                ext = value.substring(value.lastIndexOf('.') + 1).toLowerCase();
+                            console.log(validFormats.indexOf(ext) !== -1);
+                            $rootScope.isImageValid = validFormats.indexOf(ext) !== -1;
+                            $rootScope.$apply();
+                            console.log(" $rootScope.isImageValid   " + $rootScope.isImageValid);
+                            if (file_size > 2000000) {
+
+                                return false;
+                            } else {
+                                return validFormats.indexOf(ext) !== -1;
+                            }
+                        });
+                    };
+
+
+                }
+            };
+        };
+        app.directive("validImage", validImage);
+    </script>
+    <link rel="stylesheet" href="/public/css/alertify/themes/alertify.core.css">
+    <link rel="stylesheet" href="/public/css/alertify/themes/alertify.default.css" id="toggleCSS">
+
+    <script src="/public/js/alertify.js"></script>
+    <script>
+        var app = angular.module('academia', ['ngMessages']);
+    </script>
+
+    <script>
+        app.factory('httpPreConfig', function($http, $rootScope, $timeout, $q) {
+            return {
+                webServiceCallPost: function(url, data) {
+                    $('#ajax_loader').fadeIn(100);
+                    return $http.post(url, data).then(function(response) {
+                        $('#ajax_loader').fadeOut(100);
+                        return response;
+                    });
+                },
+                getToken: function() {
+                    return $('[name="_token"]').val();
+                },
+                findIndexInData: function(Array, property, action) {
+                    var result = -1;
+                    angular.forEach(Array, function(value, index) {
+                        if (value[property] == action) {
+                            result = index;
+                        }
+                    });
+                    return result;
+                },
+                showConfirmation: function() {
+                    var defer = $q.defer();
+
+
+                    swal({
+
+                            title: "Are You Sure?",
+
+                            type: "warning",
+
+                            showCancelButton: true,
+
+                            confirmButtonClass: "btn-danger",
+
+                            confirmButtonText: "Yes, Delete It!",
+
+                            cancelButtonText: "No, Cancel Please!",
+
+                            closeOnConfirm: true,
+
+                            closeOnCancel: false
+
+                        },
+
+                        function(isConfirm) {
+
+                            if (isConfirm) {
+
+
+                                defer.resolve(1);
+
+                            } else {
+
+                                swal("Cancelled", "Your Record Is Safe :)", "error");
+
+                                defer.resolve(0);
+                            }
+
+                        });
+                    return defer.promise;
+                },
+                webServiceCallPost1: function(url, data) {
+                    var deferred = $q.defer();
+                    return $.ajax({
+                        type: "POST",
+                        url: url,
+                        crossDomain: true,
+                        dataType: "json",
+                        data: data,
+                        timeout: 2000000,
+                        async: true,
+                        success: function(response) {
+                            console.log("response    " + JSON.stringify(response));
+                            deferred.resolve();
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+
+                            if (xhr.status == 0) {
+
+                            } else if (xhr.status == 404) {
+
+                            } else {
+
+                            }
+                        },
+                        beforeSend: function() {},
+                        complete: function() {}
+                    });
+
+                }
+            }
+
+        });
+    </script>
+
+    <script>
+        app.controller('auctionsController', function($scope, $http, httpPreConfig) {
+
+            $scope.response = [];
+
+            $scope.category_faqs = [];
+
+            $scope.saveSubscriber = function(subscriber_email) {
+
+                if (!subscriber_email) {
+                    alertify.error('Please enter valid email');
+                    return false;
+
+                } else {
+
+                    route = '/subscriber/create';
+                    data = {
+                        _method: 'post',
+                        '_token': httpPreConfig.getToken(),
+                        'email': subscriber_email
+                    };
+
+                    httpPreConfig.webServiceCallPost(route, data).then(function(result) {
+
+                        $scope.response = result.data;
+
+                        if ($scope.response.status == 1)
+                            alertify.success($scope.response.message);
+                        else
+                            alertify.error($scope.response.message);
+                    });
+                }
+            }
+
+
+
+            $scope.getCategoryFaqs = function(selected_category) {
+
+                $('li').removeClass();
+                $('#' + selected_category + '').addClass('active');
+
+                route = '/pages/get-categories-faqs',
+                    data = {
+                        _method: 'post',
+                        '_token': httpPreConfig.getToken(),
+                        'category_id': selected_category
+                    };
+
+                category_faqs = [];
+
+                httpPreConfig.webServiceCallPost(route, data).then(function(result) {
+
+                    result = result.data.category_faqs;
+
+                    category_faqs = [];
+
+                    angular.forEach(result, function(value, key) {
+                        category_faqs.push(value);
+                    })
+
+                    $scope.category_faqs = category_faqs;
+                    $scope.faq_length = $scope.category_faqs.length;
+                });
+            }
+
+
+
+            $scope.initFunctions = function() {
+
+
+
+
+
+
+
+
+            }
+
+
+
+
+
+
+            $scope.getSubCategories = function(selected_category) {
+
+
+                route = '/auctions/get-sub-categories',
+                    data = {
+                        _method: 'post',
+                        '_token': httpPreConfig.getToken(),
+                        'category_id': selected_category
+                    };
+
+                $scope.sub_categories = [];
+
+                httpPreConfig.webServiceCallPost(route, data).then(function(result) {
+
+                    $scope.sub_categories = result.data.sub_categories;
+
+                    // $scope.branch_id      = $scope.branches[0];
+
+
+
+                });
+            }
+
+
+
+            $scope.getStates = function(selected_country) {
+
+
+                route = '/cities/get-states',
+                    data = {
+                        _method: 'post',
+                        '_token': httpPreConfig.getToken(),
+                        'id': selected_country
+                    };
+
+                $scope.states = [];
+
+                httpPreConfig.webServiceCallPost(route, data).then(function(result) {
+
+                    $scope.states = result.data.states;
+
+                });
+            }
+
+
+            $scope.getCities = function(selected_state) {
+
+                route = '/users/get-cities',
+                    data = {
+                        _method: 'post',
+                        '_token': httpPreConfig.getToken(),
+                        'id': selected_state
+                    };
+
+                $scope.cities = [];
+
+                httpPreConfig.webServiceCallPost(route, data).then(function(result) {
+
+                    $scope.cities = result.data.cities;
+                });
+            }
+
+
+
+
+
+
+            $scope.addtoFavourites = function(auction_id) {
+
+                if (!auction_id) {
+                    return false;
+
+                } else {
+
+                    route = '/auction/add_favourite';
+                    data = {
+                        _method: 'post',
+                        '_token': httpPreConfig.getToken(),
+                        'auction_id': auction_id
+                    };
+
+                    httpPreConfig.webServiceCallPost(route, data).then(function(result) {
+
+                        $scope.response = result.data;
+
+                        if ($scope.response.status == 1)
+                            alertify.success($scope.response.message);
+                        else
+                            alertify.error($scope.response.message);
+                    });
+                }
+            }
+
+
+
+
+            $scope.getBidHistory = function(ab_id) {
+
+                route = '/auctions/bid-history',
+                    data = {
+                        _method: 'post',
+                        '_token': httpPreConfig.getToken(),
+                        'id': ab_id
+                    };
+
+                $scope.bid_history = [];
+
+                httpPreConfig.webServiceCallPost(route, data).then(function(result) {
+
+                    $scope.bid_history = result.data.records;
+
+                    // $scope.branch_id      = $scope.branches[0];
+
+
+
+                });
+            }
+
+
+
+
+
+
+
+        });
+    </script>
+
+
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-XXXXX-Y', 'auto');
+        ga('send', 'pageview');
+    </script>
+  
+  <!-- End Google Analytics -->
+
+
+
+    <div class="ajax-loader" style="display:none;" id="ajax_loader"><img src="/public/images/ajax-loader.svg"> please_wait...</div>
+
+
+    
+</body>
+
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en" id="theme" class="light">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="/cdn-cgi/apps/head/hwGM7B4uQy9K8KyLEDAfJqNEXmU.js"></script><link rel="shortcut icon" href="/assets/images/auction-fevicon.png">
+    <title>Bid Detail</title>
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link rel="stylesheet" href="/assets/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/swiper.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/responsive.css" type="text/css">
+
+</head>
+
+<body>
+    <%- include('nav') %>
+    <!-- Header End !-->
+    <!-- Main Content Start !-->
+    <main id="main-content" class="position-relative">
+        <div class="breadcrumb-main">
+            <div class="container">
+                <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="index">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">bid detail</li>
+                    </ol>
+                    <h1 class="breadcrumb-title">bid Details & more</h1>
+                </div>
+            </div>
+        </div>
+        <section class="single-bid-product outer-gap">
+            <div class="container">
+                <div class="row gy-4 gy-md-5">
+                    <!-- bid-detail.ejs -->
+
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="card-image">
+                                <img src="<%= product.image %>" alt="auction-card-img">
+                                <!-- <div class="timer-wrapper">
+                                    <div class="timer-inner"></div>
+                                </div> -->
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="product-bid-widget h-100">
+                                
+                                <h3 class="title">
+                                    <%= product.name %>
+                                </h3>
+                                <ul>
+                                    <li><span>Start Bid</span><span>₹<%= product.startingPrice %></span></li>
+                                    <!-- <li><span>Latest Bid</span><span>₹<%= product.currentBid || 0 %></span></li> -->
+                                    <li><span>Total Bids</span><span><%= bids.length %></span></li>
+                                </ul>
+                                <div class="d-flex flex-wrap justify-content-between gap-2">
+                                    <% if (loggedInUser && !userHasBid) { %>
+                                        <form action="/<%= product._id %>" method="post" class="d-flex align-items-center">
+                                            <div class="item-quantity me-2">
+                                                <input type="number" name="bidAmount" value="<%= product.startingPrice + 1 %>" min="<%= product.startingPrice + 1 %>" class="form-control">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Bid Now</button>
+                                        </form>
+                                    <% } else if (loggedInUser && userHasBid) { %>
+                                        <form action="/<%= product._id %>" method="post" class="d-flex align-items-center">
+                                            <div class="item-quantity me-2">
+                                                <input type="number" name="bidAmount" value="<%= userBidAmount %>" min="<%= product.currentBid %>" class="form-control">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Modify Bid</button>
+                                        </form>
+                                    <% } %>
+                                    
+                                </div>
+                                <% if (errorMessage) { %>
+                                    <div class="alert alert-danger" role="alert">
+                                        <%= errorMessage %>
+                                    </div>
+                                <% } %>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- <div class="col-lg-8">
+                        <div class="card-image">
+                            <img src="/assets/images/auction-card-1.png" alt="auction-card-img">
+                            <div class="timer-wrapper">
+                                <div class="timer-inner"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="product-bid-widget h-100">
+                            <h3 class="title">
+                                Enchanting Decorative Ensembles: Adorn Your Space with Elegance
+                            </h3>
+                            <ul>
+                                <li><span>Country</span><span>UK</span></li>
+                                <li><span>Start Bid</span><span>₹6000</span></li>
+                                <li><span>Latest Bid</span><span>₹100000</span></li>
+                                <li><span>Total Bids</span><span>21</span></li>
+                            </ul>
+                            <div class="d-flex flex-wrap justify-content-between gap-2">
+                                <div class="item-quantity">
+                                    <span class="input-group-tex decrement">
+                                        <button id="minus" onclick="down('0')">-</button>
+                                    </span>
+                                    <input type="number" id="myNumber" value="1" class="">
+                                    <span class="input-group-tex uncrement">
+                                        <button id="plus" onclick="up('')">+</button>
+                                    </span>
+                                </div>
+                                <a href="checkout" class="primary-btn d-flex align-items-center">bid now</a>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                                <p class="p-0">Add to wishlist</p>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="col-12">
+                        <div class="product-detail-wrapper">
+                            <ul class="nav nav-tabs d-none d-md-flex" id="myTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                        data-bs-target="#home-tab-pane" type="button" role="tab"
+                                        aria-controls="home-tab-pane" aria-selected="true">Home</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                        data-bs-target="#profile-tab-pane" type="button" role="tab"
+                                        aria-controls="profile-tab-pane" aria-selected="false">Profile</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
+                                        data-bs-target="#contact-tab-pane" type="button" role="tab"
+                                        aria-controls="contact-tab-pane" aria-selected="false">Contact</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="return-policy-tab" data-bs-toggle="tab"
+                                        data-bs-target="#return-policy-tab-pane" type="button" role="tab"
+                                        aria-controls="return-policy-tab-pane" aria-selected="false">Return
+                                        Policy</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content accordion" id="myTabContent">
+                                <div class="tab-pane fade show active accordion-item" id="home-tab-pane" role="tabpanel"
+                                    aria-labelledby="home-tab" tabindex="0">
+
+                                    <h2 class="accordion-header d-md-none" id="headingOne">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="true"
+                                            aria-controls="collapseOne">Home</button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse show d-md-block" aria-labelledby="headingOne" data-bs-parent="#myTabContent">
+                                        <div class="accordion-body">
+                                            <h4 class="mb-3"><%= product.name %></h4>
+                                            <ul>
+                                                <li><strong>Start Bid:</strong> ₹<%= product.startingPrice %></li>
+                                                <li><strong>Latest Bid:</strong> ₹<%= product.currentBid || 0 %></li>
+                                                <li><strong>Total Bids:</strong> <%= bids && bids.length ? bids.length : '0' %></li>
+                                            </ul>
+                                            <p class="mb-2"><%= product.description %></p>
+                                            <p><%= product.additionalDetails %></p>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="tab-pane fade accordion-item" id="profile-tab-pane" role="tabpanel"
+                                    aria-labelledby="profile-tab" tabindex="0">
+                                    <h2 class="accordion-header d-md-none" id="headingTwo">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo">
+                                            Profile
+                                        </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse d-md-block"
+                                    aria-labelledby="headingTwo" data-bs-parent="#myTabContent">
+                                    <div class="accordion-body">
+                                        <div class="table-responsive">
+                                            <table class="table bid-history m-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Personal Info</th>
+                                                        <th scope="col">Place Bid</th>
+                                                        <th scope="col">Time</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% bids.forEach(function(bid) { %>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="d-flex align-items-center gap-2">
+                                                                    <img src="/assets/images/no-profile-picture-icon.png" class="dashboard-avatar" alt="avatar">
+                                                                    <p><%= userMap[bid.user.toString()] || 'Unknown User' %></p>
+                                                                </div>
+                                                            </td>
+                                                            <td>₹<%= bid.amount %></td>
+                                                            <td><%= calculateElapsedTime(bid.createdAt) %></td>
+                                                        </tr>
+                                                    <% }); %>
+                                                </tbody>
+                                                
+                                                <% function calculateElapsedTime(createdAt) {
+                                                    const currentTime = new Date();
+                                                    const elapsedTimeInMs = currentTime - new Date(createdAt);
+                                                    const elapsedSeconds = Math.floor(elapsedTimeInMs / 1000);
+                                                    const elapsedMinutes = Math.floor(elapsedSeconds / 60);
+                                                    const elapsedHours = Math.floor(elapsedMinutes / 60);
+                                                    const elapsedDays = Math.floor(elapsedHours / 24);
+                                                
+                                                    if (elapsedDays > 0) {
+                                                        return `${elapsedDays} day${elapsedDays > 1 ? 's' : ''} ${elapsedHours % 24}h ${elapsedMinutes % 60}m ago`;
+                                                    } else if (elapsedHours > 0) {
+                                                        return `${elapsedHours}h ${elapsedMinutes % 60}m ago`;
+                                                    } else if (elapsedMinutes > 0) {
+                                                        return `${elapsedMinutes}m ago`;
+                                                    } else {
+                                                        return `Just now`;
+                                                    }
+                                                } %>
+                                            </table>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                </div>
+
+                                <div class="tab-pane fade accordion-item" id="contact-tab-pane" role="tabpanel"
+                                    aria-labelledby="contact-tab" tabindex="0">
+                                    <h2 class="accordion-header d-md-none" id="headingThree">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                            aria-expanded="false" aria-controls="collapseThree">
+                                            Contact
+                                        </button>
+                                    </h2>
+                                    <div id="collapseThree" class="accordion-collapse collapse d-md-block" aria-labelledby="headingThree" data-bs-parent="#myTabContent">
+                                        <div class="accordion-body">
+                                            <table class="table seller-info">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <h6>Name</h6>
+                                                            <p><%= product.createdBy.firstname %> <%= product.createdBy.lastname %></p>
+                                                        </td>
+                                    
+                                                                           
+                                                        <td>
+                                                            <h6>Email</h6>
+                                                            <p><%= product.createdBy.email %></p>
+                                                        </td>
+                                                        <tr>
+                                                        <td>
+                                                            <h6>Phone Number</h6>
+                                                            <p><%= product.createdBy.mobileno %></p>
+                                                        </td>
+                                                        </tr>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="tab-pane fade accordion-item" id="return-policy-tab-pane" role="tabpanel"
+                                    aria-labelledby="contact-tab" tabindex="0">
+                                    <h2 class="accordion-header d-md-none" id="headingFour">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                            aria-expanded="false" aria-controls="collapseFour">
+                                            Return Policy
+                                        </button>
+                                    </h2>
+                                    <div id="collapseFour" class="accordion-collapse collapse d-md-block" aria-labelledby="headingFour" data-bs-parent="#myTabContent">
+                                        <div class="accordion-body">
+                                            <h4 class="mb-3">Terms and Conditions</h4>
+                                            <p class="mb-2"><%= product.termsAndConditions %></p>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="outer-gap auction-card-small">
+            <div class="container">
+                <h2 class="section-title">Related products</h2>
+                <div class="swiper product-swiper px-0">
+                    <div class="swiper-wrapper">
+                        <% similarProducts.forEach(similarProduct => { %>
+                            <div class="swiper-slide">
+                                <div class="auction-card">
+                                    <div class="card-image">
+                                        <img src="<%= similarProduct.image %>" alt="auction-card-img">
+                                        <div class="timer-wrapper">
+                                            <div class="timer-inner"></div>
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+                                        <a href="/bid-detail/<%= similarProduct._id %>" class="card-title"><%= similarProduct.name %></a>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <p class="p-0">Current bid <span>₹<%= similarProduct.currentBid %></span></p>
+                                            <!-- <button class="like-btn"><i class="fa-regular fa-heart"></i></button> -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <% }); %>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+    <!-- Main Content End !-->
+    <!-- Footer Start !-->
+    <footer>
+        <div class="footer-top bg-dark inner-gap">
+            <div class="container">
+                <div class="row gy-4 gy-lg-3">
+                    <div class="col-md-12 col-lg-4">
+                        <div class="footer-disc">
+                            <a href="index" class="footer-logo">
+                                <img src="/assets/images/logo-white.svg" id="footerLogo" class="fThemeLogo img-fluid"
+                                    alt="logo">
+                            </a>
+                            <p>Unlock treasures through exhilarating auctions. Your gateway to rare finds and
+                                captivating experiences awaits.</p>
+                            <a href="mailto:info@bidzone.com" class="h4 fw-normal text-white">info@bidzone.com</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-2">
+                        <div class="footer-widget">
+                            <h5 class="widget-title">Sitemap</h5>
+                            <ul class="ps-3 widget-links">
+                                <li>
+                                    <a href="javascript:void(0)">Support</a>
+                                </li>
+                                <li>
+                                    <a href="faq">FAQS</a>
+                                </li>
+                                <li>
+                                    <a href="about">About</a>
+                                </li>
+                                <li>
+                                    <a href="contact">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-2">
+                        <div class="footer-widget">
+                            <h5 class="widget-title">Categories</h5>
+                            <ul class="ps-3 widget-links">
+                                <li>
+                                    <a href="browse-bid">Music</a>
+                                </li>
+                                <li>
+                                    <a href="browse-bid">jewellery</a>
+                                </li>
+                                <li>
+                                    <a href="browse-bid">Real Estate</a>
+                                </li>
+                                <li>
+                                    <a href="browse-bid">vehicle</a>
+                                </li>
+                                <li>
+                                    <a href="browse-bid">Clothes</a>
+                                </li>
+                                <li>
+                                    <a href="browse-bid">sports</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-2">
+                        <div class="footer-widget">
+                            <h5 class="widget-title">Navigation</h5>
+                            <ul class="ps-3 widget-links">
+                                <li>
+                                    <a href="blog">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="signup">my account</a>
+                                </li>
+                                <li>
+                                    <a href="bid-history">Bid History</a>
+                                </li>
+                                <li>
+                                    <a href="checkout">checkout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-2">
+                        <div class="footer-widget">
+                            <h5 class="widget-title">Legal</h5>
+                            <ul class="ps-3 widget-links">
+                                <li>
+                                    <a href="privacy">Privacy Policy</a>
+                                </li>
+                                <li>
+                                    <a href="cookies-policy">Cookies Policy</a>
+                                </li>
+                                <li>
+                                    <a href="term-condition">Terms Of Service</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-4 my-lg-5 border-white">
+                <div
+                    class="d-flex flex-wrap gap-4 justify-content-center justify-content-xl-between align-items-center">
+                    <ul class="footer-social-links">
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="fa-brands fa-pinterest-p"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="bid-number">
+                        <h2><span>1,50,000</span> Bids</h2>
+                        <h2><span>10,376</span> Members</h2>
+                        <h2><span>8942</span> Feedbacks</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom py-2 py-md-4 bg-light">
+            <p class="text-dark text-center">©
+                <script>document.write(new Date().getFullYear());</script> BidZone - All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+    <!-- Footer End !-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script>
+    function calculateElapsedTime(createdAt) {
+        const now = moment(); // Current time
+        const createdAtMoment = moment(createdAt); // Bid creation time
+        const elapsedMinutes = now.diff(createdAtMoment, 'minutes'); // Calculate elapsed minutes
+        return `${elapsedMinutes} minute${elapsedMinutes !== 1 ? 's' : ''} ago`; // Format the result
+    }
+</script>
+
+    <!-- JavaScript Libraries -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/swiper.min.js"></script>
+    <script src="/assets/js/custom.js"></script>
+    <script>
+        var swiper = new Swiper(".product-swiper", {
+            spaceBetween: 32,
+            autoplay: {
+                delay: 1500,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                450: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                992: {
+                    slidesPerView: 3,
+                },
+                1400: {
+                    slidesPerView: 4,
+                },
+            }
+        });
+    </script>
+<script>(function(){var js = "window['__CF$cv$params']={r:'8629bde70afd032f',t:'MTcxMDE0MTIwNS42MjgwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
+
+</html>

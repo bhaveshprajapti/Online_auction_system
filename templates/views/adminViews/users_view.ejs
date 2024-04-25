@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+
+    <meta name="description" content="Global Auction System">
+    <meta name="keywords" content="Global Auction System">
+    <meta name="csrf_token" content="Zw1eYq4tsFJFwBA8kJfLb6fP8Lt3xu69dsUILDfj">
+
+    <link rel="icon" href="/public/uploads/settings/H0DUiWpMJYMGEPP.png" type="image/x-icon" />
+
+    <title>
+       Bidzone
+
+    </title>
+
+
+
+    <link href="/public/adminlte/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/adminlte/css/select2.min.css" />
+    <link href="/public/adminlte/css/AdminLTE.min.css" rel="stylesheet">
+    <link href="/public/adminlte/css/custom.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/public/css/global-admin.css" rel="stylesheet">
+
+    <!-- <link href="/public/adminlte/css/skins/skin-blue.min.css" rel="stylesheet"> -->
+
+    <link href="/public/css/sweetalert.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+    <link rel="stylesheet" href="/public/adminlte/css/online/jquery-ui.css">
+    <link rel="stylesheet" href="/public/adminlte/css/online/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="/public/adminlte/css/online/select.dataTables.min.css" />
+    <link rel="stylesheet" href="/public/adminlte/css/online/buttons.dataTables.min.css" />
+    <link rel="stylesheet" href="/public/adminlte/css/online/jquery-ui-timepicker-addon.min.css" />
+    <link rel="stylesheet" href="/public/adminlte/css/online/bootstrap-datepicker.standalone.min.css" />
+
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/public/adminlte/css/online/font-awesome.min.css">
+
+
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/public/adminlte/css/online/ionicons.min.css">
+
+    <link href="/public/css/admin.css" rel="stylesheet">
+
+
+    <!--admin custom css-->
+    <link href="/public/css/admin-custom.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+
+
+
+<body class="hold-transition skin-blue sidebar-mini" ng-app="academia">
+
+
+
+    <div id="wrapper">
+
+
+       <%- include('admin_side_navbar') %>
+
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <section class="content">
+
+                <div class="row">
+                    <div class="col-md-12">
+
+
+
+
+                        <h3 class="page-title">Users</h3>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                View Details
+                            </div>
+
+                            <div class="panel-body table-responsive">
+                                <div class="row">
+
+                                    <div class="col-md-6">
+
+                                        <table class="table table-bordered table-striped">
+                                            <tr>
+                                                <th>Name</th>
+                                                <td><%= user.firstname %> <%= user.lastname %></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Email</th>
+                                                <td><%= user.email %></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Role</th>
+                                                <td><%= user.is_admin ? 'Admin' : (user.is_seller ? 'Seller' : 'Bidder') %></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Phone</th>
+                                                <td><%= user.mobileno %></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Status</th>
+                                                <td><%= user.status ? 'Approved' : 'Blocked' %></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+
+
+                                    <div class="col-md-6">
+
+                                        <table class="table table-bordered table-striped">
+                                            <!-- Other user details -->
+                                            <tr>
+                                                <th>Address</th>
+                                                <td><%= user.address || 'N/A' %></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Image</th>
+                                                <td><img src="<%= user.image || '/public/uploads/users/thumbnail/default.png' %>" alt="User Image" /></td>
+                                                
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                </div>
+
+
+
+
+
+
+
+
+
+                                <p>&nbsp;</p>
+
+                                <a href="/admin/users" class="btn btn-default">Back to list</a>
+                                <a href="/admin/users/edit/<%= user._id %>" class="btn btn-default">Edit</a>
+
+                            </div>
+                            
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </section>
+        </div>
+        </div>
+
+        <form method="POST" action="/logout" accept-charset="UTF-8" style="display:none;" id="logout"><input name="_token" type="hidden" value="Zw1eYq4tsFJFwBA8kJfLb6fP8Lt3xu69dsUILDfj">
+            <button type="submit">Logout</button>
+        </form>
+
+        <script>
+            window.deleteButtonTrans = 'Delete selected';
+            window.copyButtonTrans = 'Copy';
+            window.csvButtonTrans = 'CSV';
+            window.excelButtonTrans = 'Excel';
+            window.pdfButtonTrans = 'PDF';
+            window.printButtonTrans = 'Print';
+            window.colvisButtonTrans = 'Column visibility';
+        </script>
+
+
+        <script src="/public/adminlte/js/online/jquery-1.11.3.min.js"></script>
+        <script src="/public/adminlte/js/online/jquery.dataTables.min.js"></script>
+        <script src="/public/adminlte/js/online/dataTables.buttons.min.js"></script>
+        <script src="/public/adminlte/js/online/buttons.flash.min.js"></script>
+        <script src="/public/adminlte/js/online/jszip.min.js"></script>
+
+
+        <script src="/public/adminlte/js/online/pdfmake.min.js"></script>
+        <script src="/public/adminlte/js/online/vfs_fonts.js"></script>
+        <script src="/public/adminlte/js/online/buttons.html5.min.js"></script>
+        <script src="/public/adminlte/js/online/buttons.print.min.js"></script>
+        <script src="/public/adminlte/js/online/buttons.colVis.min.js"></script>
+        <script src="/public/adminlte/js/online/dataTables.select.min.js"></script>
+        <script src="/public/adminlte/js/online/jquery-ui.min.js"></script>
+
+
+
+        <script src="/public/adminlte/js/bootstrap.min.js"></script>
+        <script src="/public/adminlte/js/select2.full.min.js"></script>
+        <script src="/public/adminlte/js/main.js"></script>
+
+        <script src="/public/adminlte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <script src="/public/adminlte/plugins/fastclick/fastclick.js"></script>
+        <script src="/public/adminlte/js/app.min.js"></script>
+
+        <script src="/public/js/sweetalert-dev.js"></script>
+
+
+        <script>
+            // window._token = 'Zw1eYq4tsFJFwBA8kJfLb6fP8Lt3xu69dsUILDfj';
+
+            var csrfToken = $('[name="csrf_token"]').attr('content');
+
+            setInterval(refreshToken, 600000); // 1 hour 
+
+            function refreshToken() {
+                $.get('refresh-csrf').done(function(data) {
+                    csrfToken = data; // the new token
+                });
+            }
+
+            setInterval(refreshToken, 600000); // 1 hour
+        </script>
+
+        <script>
+            $.extend(true, $.fn.dataTable.defaults, {
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/English.json"
+                }
+            });
+        </script>
+
+
+
+        <script>
+            $(document).ready(function() {
+                $(".notifications-menu").on('click', function() {
+                    if (!$(this).hasClass('open')) {
+                        $('.notifications-menu .label-warning').hide();
+                        $.get('internal_notifications/read');
+                    }
+                });
+            });
+        </script>
+
+
+
+
+
+
+
+        <div class="ajax-loader" style="display:none;" id="ajax_loader"><img src="/public/images/ajax-loader.svg"> please_wait...</div>
+</body>
+
+</html>

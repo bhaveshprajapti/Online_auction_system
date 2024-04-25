@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+
+    <meta name="description" content="Global Auction System">
+    <meta name="keywords" content="Global Auction System">
+    <meta name="csrf_token" content="CXnBysVpWz0WLxTssD1pvMwDicDzIFdzJ4uzrsqW">
+
+    <link rel="icon" href="/public/uploads/settings/H0DUiWpMJYMGEPP.png" type="image/x-icon" />
+
+   <title>Bidzone - Online auction and bidding</title>
+
+
+
+    <link href="/public/adminlte/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/adminlte/css/select2.min.css" />
+    <link href="/public/adminlte/css/AdminLTE.min.css" rel="stylesheet">
+    <link href="/public/adminlte/css/custom.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/public/css/global-admin.css" rel="stylesheet">
+
+    <!-- <link href="/public/adminlte/css/skins/skin-blue.min.css" rel="stylesheet"> -->
+
+    <link href="/public/css/sweetalert.css" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+    <link rel="stylesheet" href="/public/adminlte/css/online/jquery-ui.css">
+    <link rel="stylesheet" href="/public/adminlte/css/online/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="/public/adminlte/css/online/select.dataTables.min.css" />
+    <link rel="stylesheet" href="/public/adminlte/css/online/buttons.dataTables.min.css" />
+    <link rel="stylesheet" href="/public/adminlte/css/online/jquery-ui-timepicker-addon.min.css" />
+    <link rel="stylesheet" href="/public/adminlte/css/online/bootstrap-datepicker.standalone.min.css" />
+
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/public/adminlte/css/online/font-awesome.min.css">
+
+
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/public/adminlte/css/online/ionicons.min.css">
+
+    <link href="/public/css/admin.css" rel="stylesheet">
+
+
+    <!--admin custom css-->
+    <link href="/public/css/admin-custom.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
+
+
+
+
+<body class="hold-transition skin-blue sidebar-mini" ng-app="academia">
+
+
+
+    <div id="wrapper">
+
+
+        <%- include('Admin_side_navbar') %>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <section class="content">
+
+                <div class="row">
+                    <div class="col-md-12">
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="px-2">
+                                    <div class="panel-heading"> Dashboard </div>
+
+                                    <div class="">
+
+
+                                        <div class="row">
+
+                                            <div class="col-lg-3 col-md-4 col-sm-12">
+                                                <div class="media state-media box-ws">
+                                                    <div class="media-left">
+                                                        <a href="/admin/users">
+                                                            <div class="state-icn bg-icon-info"><i class="fa fa-users"></i></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="card-title"><%= userCount %></h4>
+                                                        <a href="/admin/users">Users</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-lg-3 col-md-4 col-sm-12">
+                                                <div class="media state-media box-ws">
+                                                    <div class="media-left">
+                                                        <a href="/admin/auctions">
+                                                            <div class="state-icn bg-icon-pink"><i class="fa fa-gavel"></i></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="card-title"><%= allAuctionsCount %></h4>
+                                                        <a href="/admin/auctions">All Auctions</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-4 col-sm-12">
+                                                <div class="media state-media box-ws">
+                                                    <div class="media-left">
+                                                        <a href="/admin/pending_auctions">
+                                                            <div class="state-icn bg-icon-pink"><i class="fa fa-gavel"></i></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="card-title"><%= pendingAuctionsCount %></h4>
+                                                        <a href="/admin/pending_auctions">Pending Auctions</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-4 col-sm-12">
+                                                <div class="media state-media box-ws">
+                                                    <div class="media-left">
+                                                        <a href="/admin/rejected_auctions">
+                                                            <div class="state-icn bg-icon-pink"><i class="fa fa-gavel"></i></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="card-title"><%= rejectedAuctionsCount %></h4>
+                                                        <a href="/admin/rejected_auctions">Rejected Auctions</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-4 col-sm-12">
+                                                <div class="media state-media box-ws">
+                                                    <div class="media-left">
+                                                        <a href="/admin/new_auctions">
+                                                            <div class="state-icn bg-icon-pink"><i class="fa fa-gavel"></i></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="card-title"><%= newAuctionsCount %></h4>
+                                                        <a href="/admin/new_auctions">New Auctions</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-4 col-sm-12">
+                                                <div class="media state-media box-ws">
+                                                    <div class="media-left">
+                                                        <a href="/admin/open_auctions">
+                                                            <div class="state-icn bg-icon-pink"><i class="fa fa-gavel"></i></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="card-title"><%= openAuctionsCount %></h4>
+                                                        <a href="/admin/open_auctions">Open Auctions</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-4 col-sm-12">
+                                                <div class="media state-media box-ws">
+                                                    <div class="media-left">
+                                                        <a href="/admin/closed_auctions">
+                                                            <div class="state-icn bg-icon-pink"><i class="fa fa-gavel"></i></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="card-title"><%= closedAuctionsCount %></h4>
+                                                        <a href="/admin/closed_auctions">Closed Auctions</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-4 col-sm-12">
+                                                <div class="media state-media box-ws">
+                                                    <div class="media-left">
+                                                        <a href="/admin/suspended_auctions">
+                                                            <div class="state-icn bg-icon-pink"><i class="fa fa-gavel"></i></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="card-title"><%= suspendedAuctionsCount %></h4>
+                                                        <a href="/admin/suspended_auctions">Suspended Auctions</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                           
+                                          
+
+
+                                            <div class="col-lg-3 col-md-4 col-sm-12">
+                                                <div class="media state-media box-ws">
+                                                    <div class="media-left">
+                                                        <a href="/admin/categories">
+                                                            <div class="state-icn bg-icon-purple"><i class="fa fa-list-alt"></i></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="card-title"><%= categoryCount %></h4>
+                                                        <a href="/admin/categories">Categories</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="col-lg-3 col-md-4 col-sm-12">
+                                                <div class="media state-media box-ws">
+                                                    <div class="media-left">
+                                                        <a href="/admin/notifications">
+                                                            <div class="state-icn bg-icon-success"><i class="fa fa-question"></i></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="card-title">contacts</h4>
+                                                        <a href="/admin/notifications"></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <!-- <div class="col-lg-3 col-md-4 col-sm-12">
+                                                <div class="media state-media box-ws">
+                                                    <div class="media-left">
+                                                        <a href="/cities">
+                                                            <div class="state-icn bg-icon-blue"><i class="fa fa-map-marker"></i></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="card-title">47</h4>
+                                                        <a href="/cities">Cities</a>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+
+
+                                            <!-- <div class="col-lg-3 col-md-4 col-sm-12">
+                                                <div class="media state-media box-ws">
+                                                    <div class="media-left">
+                                                        <a href="/languages/list">
+                                                            <div class="state-icn bg-icon-orange"><i class="fa fa-language"></i></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="card-title">17</h4>
+                                                        <a href="/languages/list">Languages</a>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+
+
+                                            <!-- <div class="col-lg-3 col-md-4 col-sm-12">
+                                                <div class="media state-media box-ws">
+                                                    <div class="media-left">
+                                                        <a href="/content_pages">
+                                                            <div class="state-icn bg-icon-lawn-green"><i class="fa fa-fw fa-th-large"></i></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="card-title">6</h4>
+                                                        <a href="/content_pages">Pages</a>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+
+
+                                            <!-- <div class="col-lg-3 col-md-4 col-sm-12">
+                                                <div class="media state-media box-ws">
+                                                    <div class="media-left">
+                                                        <a href="/mastersettings/settings">
+                                                            <div class="state-icn bg-icon-teal"><i class="fa fa-fw fa-cog"></i></div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4 class="card-title">11</h4>
+                                                        <a href="/mastersettings/settings">Settings</a>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+
+
+
+
+
+
+                                        </div>
+
+
+                                        <!--document-->
+                                       
+                                        <!--document-->
+
+
+                                        <!-- /.container-fluid -->
+                                        <!-- <div class="row">
+
+
+                                            <div class="col-md-6">
+                                                <div class="panel panel-primary dsPanel">
+                                                    <div class="panel-heading"><i class="fa fa-bar-chart-o"></i> Auctions Statistics</div>
+                                                    <div class="panel-body">
+                                                        <canvas id="payments_chart" width="100" height="60"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="col-md-6">
+                                                <div class="panel panel-primary dsPanel">
+                                                    <div class="panel-heading"><i class="fa fa-pie-chart"></i> Seller Auctions</div>
+                                                    <div class="panel-body">
+                                                        <canvas id="demanding_paid_quizzes" width="100" height="60"></canvas>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div> -->
+
+
+
+                                        </div>
+
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+        </div>
+
+        <form method="POST" action="/logout" accept-charset="UTF-8" style="display:none;" id="logout"><input name="_token" type="hidden" value="CXnBysVpWz0WLxTssD1pvMwDicDzIFdzJ4uzrsqW">
+            <button type="submit">Logout</button>
+        </form>
+
+        <script>
+            window.deleteButtonTrans = 'Delete selected';
+            window.copyButtonTrans = 'Copy';
+            window.csvButtonTrans = 'CSV';
+            window.excelButtonTrans = 'Excel';
+            window.pdfButtonTrans = 'PDF';
+            window.printButtonTrans = 'Print';
+            window.colvisButtonTrans = 'Column visibility';
+        </script>
+
+
+        <script src="/public/adminlte/js/online/jquery-1.11.3.min.js"></script>
+        <script src="/public/adminlte/js/online/jquery.dataTables.min.js"></script>
+        <script src="/public/adminlte/js/online/dataTables.buttons.min.js"></script>
+        <script src="/public/adminlte/js/online/buttons.flash.min.js"></script>
+        <script src="/public/adminlte/js/online/jszip.min.js"></script>
+
+
+        <script src="/public/adminlte/js/online/pdfmake.min.js"></script>
+        <script src="/public/adminlte/js/online/vfs_fonts.js"></script>
+        <script src="/public/adminlte/js/online/buttons.html5.min.js"></script>
+        <script src="/public/adminlte/js/online/buttons.print.min.js"></script>
+        <script src="/public/adminlte/js/online/buttons.colVis.min.js"></script>
+        <script src="/public/adminlte/js/online/dataTables.select.min.js"></script>
+        <script src="/public/adminlte/js/online/jquery-ui.min.js"></script>
+
+
+
+        <script src="/public/adminlte/js/bootstrap.min.js"></script>
+        <script src="/public/adminlte/js/select2.full.min.js"></script>
+        <script src="/public/adminlte/js/main.js"></script>
+
+        <script src="/public/adminlte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <script src="/public/adminlte/plugins/fastclick/fastclick.js"></script>
+        <script src="/public/adminlte/js/app.min.js"></script>
+
+        <script src="/public/js/sweetalert-dev.js"></script>
+
+
+        <script>
+            // window._token = 'CXnBysVpWz0WLxTssD1pvMwDicDzIFdzJ4uzrsqW';
+
+            var csrfToken = $('[name="csrf_token"]').attr('content');
+
+            setInterval(refreshToken, 600000); // 1 hour 
+
+            function refreshToken() {
+                $.get('refresh-csrf').done(function(data) {
+                    csrfToken = data; // the new token
+                });
+            }
+
+            setInterval(refreshToken, 600000); // 1 hour
+        </script>
+
+        <script>
+            $.extend(true, $.fn.dataTable.defaults, {
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/English.json"
+                }
+            });
+        </script>
+
+
+
+        <script>
+            $(document).ready(function() {
+                $(".notifications-menu").on('click', function() {
+                    if (!$(this).hasClass('open')) {
+                        $('.notifications-menu .label-warning').hide();
+                        $.get('internal_notifications/read');
+                    }
+                });
+            });
+        </script>
+
+
+</body>
+
+</html>

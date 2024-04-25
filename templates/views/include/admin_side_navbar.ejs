@@ -1,0 +1,564 @@
+<header class="main-header">
+    <!-- Logo -->
+    <a href="" class="logo" style="font-size: 16px;">
+
+
+
+
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini">
+   <img src="/public/uploads/settings/ULep4qH0blmyt45.png" alt="Logo" class="img-fluid">
+</span>
+
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg">
+ <img src="/public/uploads/settings/ULep4qH0blmyt45.png" alt="Logo" class="img-fluid">
+</span>
+
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+</a>
+
+
+
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                <!--notifications-->
+               
+
+              
+                <!---new users-->
+
+
+
+                <!--navbar dropdown-->
+                <li class="dropdown profile-menu">
+                    <div class="dropdown-toggle top-profile-menu" data-toggle="dropdown">
+                        <div class="username">
+                            <h4>Admin</h4>
+                        </div>
+
+                        <div class="profile-img"> <img src="/public/uploads/users/thumbnail/default.png" alt=""> </div>
+                        <div class="mdi mdi-menu-down"></div>
+                    </div>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="users/edit/<%= user._id%>">
+                        <span>My Profile</span>
+                    </a>
+                        </li>
+                        <li>
+                            <a href="users/change-password/admin-a797ef10865664bf24c9f65ef1a9dbbdaed20e33">
+                        <span>Change Password</span>
+                    </a>
+                        </li>
+
+                        <li>
+                            <a href="/logout">
+                        <span>Logout</span>
+                    </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+            </ul>
+            </div>
+
+    </nav>
+
+
+
+</header>
+
+<style>
+    .slimScrollDiv {
+        width: auto !important;
+        height: auto !important;
+    }
+
+    .notification-menu {
+        width: auto !important;
+        list-style-type: none;
+        padding: 5px;
+        max-width: 300px;
+        height: auto !important;
+    }
+
+    .notification-link {
+        width: auto;
+    }
+
+    .notification-link a {
+        white-space: normal !important;
+    }
+
+    .unread a {
+        font-weight: bold !important;
+    }
+
+    .is-link {
+        color: #5b9bd1 !important;
+    }
+</style>
+<style>
+    .slimScrollDiv {
+        width: auto !important;
+        height: auto !important;
+    }
+
+    .language-menu {
+        width: auto !important;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        max-width: 300px;
+        height: auto !important;
+        max-height: 500px !important;
+    }
+
+    .language-link {
+        width: auto;
+    }
+
+    .language-link a {
+        display: block;
+        width: 100%;
+        white-space: normal !important;
+        padding: 5px;
+    }
+
+    .language-link a:hover {
+        color: #389ad2;
+        background: #f9f9f9;
+    }
+</style>
+
+
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <ul class="sidebar-menu">
+
+
+
+            <li class="">
+                <a href="/admin/dashboard">
+            <i class="fa fa-cloud"></i>
+            <span class="title"> Dashboard </span>
+        </a>
+            </li>
+
+             <li class="">
+                <a href="/admin/notifications">
+            <i class="fa fa-briefcase"></i>
+            <span class="title"> Notifications </span>
+        </a>
+            </li>
+
+            <!-- <li class="">
+                <a href="users">
+            <i class="fa fa-users"></i>
+            <span class="title"> User Management </span>
+        </a>
+            </li> -->
+
+
+            
+            <li class="treeview ">
+                <a href="#">
+            <i class="fa fa-users"></i>
+            <span class="title"> User Management </span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+                <ul class="treeview-menu">
+
+                    <li class="">
+                        <a href="/admin/users">
+                    <i class="fa fa-tags"></i>
+                    <span class="title">
+                       All_users 
+                    </span>
+                </a>
+                    </li>
+
+                </ul>
+                <ul class="treeview-menu">
+
+                    <li class="">
+                        <a href="/admin/blocked_users">
+                    <i class="fa fa-tags"></i>
+                    <span class="title">
+                       Blocked_users 
+                    </span>
+                </a>
+                    </li>
+
+                    
+
+                </ul>
+            <!-- <li class="treeview ">
+                <a href="#">
+            <i class="fa fa-question"></i>
+            <span class="title"> Faq Management </span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+                <ul class="treeview-menu">
+
+                    <li class="">
+                        <a href="faq_categories">
+                    <i class="fa fa-briefcase"></i>
+                    <span class="title">
+                        Categories
+                    </span>
+                </a>
+                    </li>
+                    <li class="">
+                        <a href="faq_questions">
+                    <i class="fa fa-question"></i>
+                    <span class="title">
+                        Questions
+                    </span>
+                </a>
+                    </li>
+                </ul>
+            </li> -->
+
+            <li class="treeview ">
+                <a href="#">
+            <i class="fa fa-list"></i>
+            <span class="title"> Categories </span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+                <ul class="treeview-menu">
+
+                    <li class="">
+                        <a href="/admin/categories">
+                    <i class="fa fa-tags"></i>
+                    <span class="title">
+                        Category 
+                    </span>
+                </a>
+                    <!-- </li>
+                    <li class="">
+                        <a href="sub_catogories">
+                    <i class="fa fa-list-alt"></i>
+                    <span class="title">
+                        Sub Categories 
+                    </span>
+                </a>
+                    </li> -->
+                </ul>
+            </li>
+
+            <!-- <li class="treeview ">
+                <a href="#">
+            <i class="fa fa-map-marker"></i>
+            <span class="title"> Location Master </span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+                <ul class="treeview-menu">
+
+                    <li class="">
+                        <a href="countries">
+                    <i class="fa fa-flag"></i>
+                    <span class="title">
+                        Countries
+                    </span>
+                </a>
+                    </li>
+                    <li class="">
+                        <a href="states">
+                    <i class="fa fa-map-marker"></i>
+                    <span class="title">
+                        States
+                    </span>
+                </a>
+                    </li>
+                    <li class="">
+                        <a href="cities">
+                    <i class="fa fa-building"></i>
+                    <span class="title">
+                        Cities
+                    </span>
+                </a>
+                    </li>
+                </ul>
+            </li> -->
+
+
+
+            <!-- <li class="">
+                <a href="languages/list">
+            <i class="fa fa-language"></i>
+            <span>Languages</span>
+        </a>
+            </li> -->
+
+
+
+            <!-- <li class="">
+                <a href="content_pages">
+                <i class="fa fa-file-o"></i>
+                <span class="title">
+                    Content Management
+                   
+                </span>
+            </a>
+            </li> -->
+
+            <!-- <li class="">
+                <a href="mastersettings/settings">
+            <i class="fa fa-gears"></i>
+            <span>Master Settings</span>
+        </a>
+            </li>
+
+            <li class="">
+                <a href="testmonies">
+            <i class="fa fa-quote-left"></i>
+            <span>Testimonials</span>
+        </a>
+            </li> -->
+
+
+
+            <!-- <li class="">
+                <a href="templates">
+                <i class="fa fa-book"></i>
+                <span class="title">
+                   Email Templates
+                </span>
+            </a>
+            </li> -->
+
+
+
+
+            <!-- <li class="class = active">
+                <a href="auctions">
+            <i class="fa fa-gavel"></i>
+            <span class="title">
+               Auctions 
+            </span>
+        </a>
+
+
+            </li> -->
+
+            <li class="treeview ">
+                <a href="#">
+            <i class="fa fa-list"></i>
+            <span class="title"> Auctions </span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+                <ul class="treeview-menu">
+
+                    <li class="">
+                        <a href="/admin/auctions">
+                    <i class="fa fa-tags"></i>
+                    <span class="title">
+                       All_Auctions 
+                    </span>
+                </a>
+                    </li>
+
+                </ul>
+                <ul class="treeview-menu">
+
+                    <li class="">
+                        <a href="/admin/pending_auctions">
+                    <i class="fa fa-tags"></i>
+                    <span class="title">
+                       Pending_Auctions 
+                    </span>
+                </a>
+                    </li>
+
+                    
+
+                </ul>
+                <ul class="treeview-menu">
+
+                    <li class="">
+                        <a href="/admin/rejected_auctions">
+                    <i class="fa fa-tags"></i>
+                    <span class="title">
+                       Rejected_Auctions 
+                    </span>
+                </a>
+                    </li>
+
+                </ul>
+
+                <ul class="treeview-menu">
+
+                    <li class="">
+                        <a href="/admin/new_auctions">
+                    <i class="fa fa-tags"></i>
+                    <span class="title">
+                       New_Auctions 
+                    </span>
+                </a>
+                    </li>
+
+                </ul>
+
+                <ul class="treeview-menu">
+
+                    <li class="">
+                        <a href="/admin/Open_auctions">
+                    <i class="fa fa-tags"></i>
+                    <span class="title">
+                       Open_Auctions 
+                    </span>
+                </a>
+                    </li>
+
+                </ul>
+
+                <ul class="treeview-menu">
+
+                    <li class="">
+                        <a href="/admin/closed_auctions">
+                    <i class="fa fa-tags"></i>
+                    <span class="title">
+                       Closed_Auctions 
+                    </span>
+                </a>
+                    </li>
+
+                </ul>
+
+                <ul class="treeview-menu">
+
+                    <li class="">
+                        <a href="/admin/suspended_auctions">
+                    <i class="fa fa-tags"></i>
+                    <span class="title">
+                       Suspended_Auctions 
+                    </span>
+                </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+                
+
+
+
+
+            <!-- <li class="">
+                <a href="admin/create_letters">
+            <i class="fa fa-newspaper-o"></i>
+            <span class="title">
+               News Letter 
+            </span>
+        </a>
+            </li> -->
+
+
+            <!-- <li class="treeview ">
+                <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span class="title">Reports</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+                <ul class="treeview-menu"> -->
+                    <!--  <li class="">
+                <a href="admin/reports/auction-report">
+                    <i class="fa fa-line-chart"></i>
+                    <span class="title">Auction Report</span>
+                </a>
+            </li> -->
+
+                    <!-- <li class=" ">
+                        <a href="admin/reports/seller-wise-report">
+                    <i class="fa fa-bar-chart"></i>
+                    <span class="title">Seller Wise Reports</span>
+                </a>
+                    </li>
+
+                    <li class=" ">
+                        <a href="admin/reports/time-wise-report">
+                    <i class="fa fa-bar-chart"></i>
+                    <span class="title">Year Month Wise Reports</span>
+                </a>
+                    </li> -->
+
+
+                    <li class=" ">
+                        <a href="/admin/saller_auctions">
+                    <i class="fa fa-user"></i>
+                    <span class="title">Seller Auctions</span>
+                </a>
+                    </li>
+
+                </ul>
+            </li>
+
+
+
+
+            <!-- <li class="">
+                <a href="user/notifications">
+            <i class="fa fa-briefcase"></i>
+            <span class="title"> Notifications </span>
+        </a>
+            </li> -->
+
+            <!-- <li class="">
+                <a href="sms/index">
+            <i class="fa fa-mobile"></i><span class="title"> SMS </span>
+        </a>
+            </li> -->
+
+            <!-- <li class=" ">
+                <a href="messenger">
+            <i class="fa fa-envelope"></i>
+
+            <span>Messages</span>
+                            </a>
+            </li> -->
+            <style>
+                .page-sidebar-menu .unread * {
+                    font-weight: bold !important;
+                }
+            </style>
+
+
+            <!-- <li class="">
+                <a href="payments/index">
+            <i class="fa fa-money"></i>
+            <span>Payments</span>
+        </a>
+            </li> -->
+
+
+
+           
+        </ul>
+    </section>
+</aside>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" id="theme" class="light">
+
+
+<!-- Mirrored from theme.bitrixinfotech.com/bidzone/login by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Mar 2024 13:36:19 GMT -->
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="../cdn-cgi/apps/head/hwGM7B4uQy9K8KyLEDAfJqNEXmU.js"></script><link rel="shortcut icon" href="/assets/images/auction-fevicon.png">
+    <title>Login</title>
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link rel="stylesheet" href="/assets/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="/assets/css/responsive.css" type="text/css">
+    
+</head>
+
+<body>
+    <!-- Preloader Start -->
+    <div class="preloader bg-light" id="preloader">
+        <span class="preloader-inner"></span>
+    </div>
+    <!-- Preloader End -->
+    <div class="toggle-theme d-none">
+        <input type="checkbox" class="changeTheme" id="changeTheme">
+        <label for="changeTheme" class="m-auto"></label>
+    </div>
+    <div class="login-wrapper" id="login-wrapper" style="background-image: url('/assets/images/login-bg.svg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-lg-6 col-xl-5">
+                    <div class="form-wrapper text-center">
+                        <a class="d-inline-block mb-2" href="index">
+                            <img src="/assets/images/auction-fevicon.png" class="themeLogo img-fluid" alt="logo">
+                        </a>
+                        <h2 class="display-6 fw-bold mb-3">Log In</h2>
+                        <p class="mb-4">Add your credentials below to login</p>
+                        <form action="/loginUser" method="POST">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label>Mobile No*</label>
+                                        <input type="tel" name="mobileno" class="form-control" placeholder="Mobile No" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <div class="form-group formPassword">
+                                        <label>Password*</label>
+                                        <input type="password" name="password" class="form-control" placeholder="****" required>
+                                        <span class="input-checker password-show-hide"><i class="fa-regular fa-eye-slash"></i></span>
+                                        <a href="#" class="position-absolute end-0" data-toggle="modal" data-target="#forgotPasswordModal">Forgot Password?</a>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <!-- Error message display -->
+                                    <% if (errorMessage) { %>
+                                    <div class="alert alert-danger" role="alert">
+                                        <%= errorMessage %>
+                                    </div>
+                                    <% } %>
+                                    <button class="primary-btn w-100" type="submit">Login</button>
+                                </div>
+                            </div>
+                        </form>
+                        
+                        
+                        
+                            <p>Don't have an account? <a href="signup">Create an account</a> </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!-- Bootstrap modal for forgot password -->
+  <!-- Bootstrap modal for forgot password -->
+  
+<div class="modal fade" id="forgotPasswordModal" tabindex="-1" role="dialog" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="forgotPasswordModalLabel">Forgot Password</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="forgotPasswordForm" action="/updatePassword" method="POST">
+            <div class="form-group">
+              <label for="mobile">Mobile number</label>
+              <input type="tel" class="form-control" id="mobile" name="mobile" required>
+            </div>
+            <div class="form-group">
+              <label for="newPassword">New Password</label>
+              <input type="password" class="form-control" id="newPassword" name="newPassword" required>
+              <small id="passwordHelp" class="form-text text-muted">Password must contain at least one uppercase letter, one number, one special character, and be at least 8 characters long.</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+  
+  
+  
+
+    <!-- JavaScript Libraries -->
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="/assets/js/custom.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(document).ready(function () {
+                if (localStorage.storedValue == 'dark') {
+                    $('#changeTheme').prop('checked', true);
+                    $('#changeTheme1').prop('checked', true);
+                    document.getElementById("theme").className = "dark";
+                    document.getElementById('login-wrapper').style.backgroundImage = "url('/assets/images/login-bg-dark.svg')";
+                }
+                else {
+                    $('#changeTheme').prop('checked', false);
+                    $('#changeTheme1').prop('checked', false);
+                    document.getElementById("theme").className = "light";
+                    document.getElementsByClassName('login-wrapper').style.backgroundImage = "url('/assets/images/login-bg.svg')";
+                }
+
+            });
+        });
+    </script>
+<script>(function(){var js = "window['__CF$cv$params']={r:'8623afdd5aa3b894',t:'MTcxMDA3NzcxNi4xOTcwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='../cdn-cgi/challenge-platform/h/b/scripts/jsd/aeb70db32f0f/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
+
+
+<!-- Mirrored from theme.bitrixinfotech.com/bidzone/login by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 10 Mar 2024 13:36:20 GMT -->
+</html>

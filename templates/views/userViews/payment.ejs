@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" id="theme" class="light">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="/cdn-cgi/apps/head/hwGM7B4uQy9K8KyLEDAfJqNEXmU.js"></script><link rel="shortcut icon" href="assets/images/auction-fevicon.png">
+    <title>Payment</title>
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link rel="stylesheet" href="assets/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/responsive.css" type="text/css">
+
+</head>
+
+<body>
+    <%- include ('nav') %>
+    <!-- Header End !-->
+    <!-- Main Content Start !-->
+    <main id="main-content" class="position-relative">
+        <div class="breadcrumb-main">
+            <div class="container">
+                <div class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="index">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Payment</li>
+                    </ol>
+                    <h1 class="breadcrumb-title">Product Details & more</h1>
+                </div>
+            </div>
+        </div>
+        <div class="inner-gap">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-8">
+                        <div class="payment-wrapper">
+                            <div class="accordion" id="paymentAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="wallet">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseWallet" aria-expanded="true"
+                                            aria-controls="collapseWallet">
+                                            <span>Wallet</span>
+                                            <span class="acc-para">Safe payment online. Credit card needed. Paypal
+                                                account is not necessary.
+                                            </span>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseWallet" class="accordion-collapse collapse"
+                                        aria-labelledby="wallet" data-bs-parent="#paymentAccordion">
+                                        <div class="accordion-body">
+                                            <p>Safe payment online. Credit card needed. Paypal account is not necessary.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="creditCard">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseCC" aria-expanded="false"
+                                            aria-controls="collapseCC">
+                                            <span>Credit Card</span>
+                                            <span class="acc-para">Safe money transfer using your bank account. Visa,
+                                                maestro, discover,
+                                                american express.</span>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseCC" class="accordion-collapse collapse show"
+                                        aria-labelledby="creditCard" data-bs-parent="#paymentAccordion">
+                                        <div class="accordion-body">
+                                            <div class="payment-card-img d-flex gap-2">
+                                                <i class="fa-regular fa-credit-card fs-2"></i>
+                                                <i class="fa-solid fa-money-check fs-2"></i>
+                                                <i class="fa-regular fa-credit-card fs-2"></i>
+                                            </div>
+                                            <hr class="my-4">
+                                            <div class="payment-card-detail">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="form-group">
+                                                            <label>Credit Card Number</label>
+                                                            <input type="number" class="form-control"
+                                                                placeholder="66655 8844 3322 9977">
+                                                            <span class="input-checker"><i
+                                                                    class="fa-regular fa-circle-check"></i></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>CVV Code</label>
+                                                            <input type="text" class="form-control">
+                                                            <span class="input-checker"><i
+                                                                    class="fa-regular fa-credit-card"></i></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label>Expiry Date</label>
+                                                            <input type="date" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-group mb-0">
+                                                            <label>Name On Card</label>
+                                                            <input type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="netBanking">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapseNetBanking"
+                                            aria-expanded="false" aria-controls="collapseNetBanking">
+                                            <span>Net banking</span>
+                                            <span class="acc-para">Safe payment online. Credit card needed. Paypal
+                                                account is not necessary.
+                                            </span>
+                                        </button>
+                                    </h2>
+                                    <div id="collapseNetBanking" class="accordion-collapse collapse"
+                                        aria-labelledby="netBanking" data-bs-parent="#paymentAccordion">
+                                        <div class="accordion-body">
+                                            <p>Safe payment online. Credit card needed. Paypal account is not necessary.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="row gy-4">
+                            <div class="col-lg-12">
+                                <div class="product-card-wrapper">
+                                    <div class="d-flex align-items-center gap-2 mb-2">
+                                        <img src="assets/images/product-img.png" alt="product-img">
+                                        <h5 class="fw-bold line-clamp line-clamp-2">Collectible Pearl Jewelry: Timeless
+                                            Elegance Unveiled</h5>
+                                    </div>
+                                    <h6 class="d-flex justify-content-between py-2"><span
+                                            class="fw-normal">Quantity</span> <span class="fw-semibold">59</span>
+                                    </h6>
+                                    <h6 class="d-flex justify-content-between py-2"><span class="fw-normal">Bid
+                                            Amount</span> <span class="fw-semibold">₹60000</span></h6>
+                                    <h6 class="d-flex justify-content-between py-2"><span class="fw-normal">Shipping
+                                            Charge</span> <span class="fw-semibold">₹200</span></h6>
+                                    <h6 class="d-flex justify-content-between py-2"><span class="fw-normal">tax</span>
+                                        <span class="fw-semibold">₹400</span>
+                                    </h6>
+                                    <h5 class="d-flex justify-content-between pt-2 pt-md-3 fw-bold border-top"><span
+                                            class="">Total</span>
+                                        <span class="">₹60600</span>
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <a href="thankyou" class="payment-btn">Payment Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Main Content End !-->
+    <!-- Footer Start !-->
+    <footer>
+        <div class="footer-top bg-dark inner-gap">
+            <div class="container">
+                <div class="row gy-4 gy-lg-3">
+                    <div class="col-md-12 col-lg-4">
+                        <div class="footer-disc">
+                            <a href="index" class="footer-logo">
+                                <img src="assets/images/logo-white.svg" id="footerLogo" class="fThemeLogo img-fluid"
+                                    alt="logo">
+                            </a>
+                            <p>Unlock treasures through exhilarating auctions. Your gateway to rare finds and
+                                captivating experiences awaits.</p>
+                            <a href="mailto:info@bidzone.com" class="h4 fw-normal text-white">info@bidzone.com</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-2">
+                        <div class="footer-widget">
+                            <h5 class="widget-title">Sitemap</h5>
+                            <ul class="ps-3 widget-links">
+                                <li>
+                                    <a href="javascript:void(0)">Support</a>
+                                </li>
+                                <li>
+                                    <a href="faq">FAQS</a>
+                                </li>
+                                <li>
+                                    <a href="about">About</a>
+                                </li>
+                                <li>
+                                    <a href="contact">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-2">
+                        <div class="footer-widget">
+                            <h5 class="widget-title">Categories</h5>
+                            <ul class="ps-3 widget-links">
+                                <li>
+                                    <a href="browse-bid">Music</a>
+                                </li>
+                                <li>
+                                    <a href="browse-bid">jewellery</a>
+                                </li>
+                                <li>
+                                    <a href="browse-bid">Real Estate</a>
+                                </li>
+                                <li>
+                                    <a href="browse-bid">vehicle</a>
+                                </li>
+                                <li>
+                                    <a href="browse-bid">Clothes</a>
+                                </li>
+                                <li>
+                                    <a href="browse-bid">sports</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-2">
+                        <div class="footer-widget">
+                            <h5 class="widget-title">Navigation</h5>
+                            <ul class="ps-3 widget-links">
+                                <li>
+                                    <a href="blog">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="signup">my account</a>
+                                </li>
+                                <li>
+                                    <a href="bid-history">Bid History</a>
+                                </li>
+                                <li>
+                                    <a href="checkout">checkout</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-lg-2">
+                        <div class="footer-widget">
+                            <h5 class="widget-title">Legal</h5>
+                            <ul class="ps-3 widget-links">
+                                <li>
+                                    <a href="privacy">Privacy Policy</a>
+                                </li>
+                                <li>
+                                    <a href="cookies-policy">Cookies Policy</a>
+                                </li>
+                                <li>
+                                    <a href="term-condition">Terms Of Service</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <hr class="my-4 my-lg-5 border-white">
+                <div
+                    class="d-flex flex-wrap gap-4 justify-content-center justify-content-xl-between align-items-center">
+                    <ul class="footer-social-links">
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="fa-brands fa-pinterest-p"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="bid-number">
+                        <h2><span>1,50,000</span> Bids</h2>
+                        <h2><span>10,376</span> Members</h2>
+                        <h2><span>8942</span> Feedbacks</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom py-2 py-md-4 bg-light">
+            <p class="text-dark text-center">©
+                <script>document.write(new Date().getFullYear());</script> BidZone - All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+    <!-- Footer End !-->
+
+    <!-- JavaScript Libraries -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+<script>(function(){var js = "window['__CF$cv$params']={r:'8629bdedd852032f',t:'MTcxMDE0MTIwNi43MjYwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script></body>
+
+</html>

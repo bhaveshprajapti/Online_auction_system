@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en" id="theme" class="light">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="/cdn-cgi/apps/head/hwGM7B4uQy9K8KyLEDAfJqNEXmU.js"></script><link rel="shortcut icon" href="assets/images/auction-fevicon.png">
+    <title>Bidzone - Online auction and bidding</title>
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link rel="stylesheet" href="assets/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/swiper.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/responsive.css" type="text/css">
+    <style>
+
+
+    </style>
+</head>
+
+<body>
+    <%- include('nav')%>
+    <!-- Header End !-->
+    <!-- Main Content Start !-->
+    <main id="main-content" class="position-relative">
+        <section class="banner overflow-hidden" id="current-image" style="background-image: url();">
+            <div class="container position-relative">
+                <div class="row align-items-center justify-content-center gy-4">
+                    <div class="col-xl-7">
+                        <div class="banner-left">
+                            <h1 class="banner-title">Join exclusive auction & Get the
+                                finest.</h1>
+                            <!-- <div class="input-group banner-search-box">
+                                <div class="select">
+                                    <button class="selectBtn" data-type="Category">Category</button>
+                                    <div class="selectDropdown">
+                                        <div class="option" data-type="firstOption">Category</div>
+                                        <div class="option" data-type="secondOption">Mobile</div>
+                                        <div class="option" data-type="thirdOption">Jewellery</div>
+                                        <div class="option" data-type="forthOption">real estate</div>
+                                        <div class="option" data-type="fifthOption">Sports</div>
+                                        <div class="option" data-type="sixthOption">vehicle</div>
+                                    </div>
+                                </div>
+                                <input type="search" class="form-control" placeholder="I’m Looking for...">
+                                <button class="primary-btn">search</button>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="col-11 col-md-8 col-xl-5">
+                        <div class="swiper banner-slider">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="banner-card position-relative">
+                                        <img src="assets/images/auction-product-1.png" alt="banner-bid">
+                                        <div class="banner-card-disc">
+                                            <a href="bid-detail">vintage luxurious house</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="banner-card position-relative">
+                                        <img src="assets/images/auction-product-2.png" alt="banner-bid">
+                                        <div class="banner-card-disc">
+                                            <a href="bid-detail">Final match 2022 Shuttlecock and racket</a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="banner-card position-relative">
+                                        <img src="assets/images/auction-product-3.png" alt="banner-bid">
+                                        <div class="banner-card-disc">
+                                            <a href="bid-detail">16th-century culverin cannon</a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="banner-card position-relative">
+                                        <img src="assets/images/auction-product-4.png" alt="banner-bid">
+                                        <div class="banner-card-disc">
+                                            <a href="bid-detail">Vintage Hand Carved Wood Camel Stand </a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="banner-card position-relative">
+                                        <img src="assets/images/auction-product-13.png" alt="banner-bid">
+                                        <div class="banner-card-disc">
+                                            <a href="bid-detail">Most famous Skirt piece of celebrities</a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="outer-gap">
+            <div class="container">
+                <div class="swiper categorySwiper">
+                    <div class="swiper-wrapper">
+                        <% categories.forEach(category => { %>
+                            <div class="swiper-slide">
+                                <a href="/browse-bid?category=<%= category.name %>">
+                                    <div class="category-card">
+                                        <img src="<%= category.image ? category.image : 'assets/images/tag.png' %>" alt="category-img" height="124px" width="124px">
+                                        <h5><%= category.name.toUpperCase() %></h5>
+                                    </div>
+                                </a>
+                            </div>
+                        <% }) %>
+                    </div>
+                    
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+            </div>
+        </section>
+        <section class="outer-gap">
+            <div class="container">
+                <h2 class="section-title">Live Auction</h2>
+                
+                    <!-- <div class="col-lg-6">
+                        <div class="auction-card">
+                            <div class="card-image left-card-image">
+                                <img src="assets/images/live-auction.png" class="h-100 w-100" alt="auction-card-img">
+                                <div class="timer-wrapper">
+                                    <div class="timer-inner">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card-content">
+                                <h4>Champagne Diamond & 29.47ct Smokey Topaz 14k Rose Gold Ring</h4>
+                                <p>Current bid <span>₹ 50000</span></p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="bid-detail" class="primary-btn">Bid Now</a>
+                                    <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    
+                   <!-- products.ejs -->
+                   <!-- <div class="row gy-4">
+                    <div class="auction-card-small">
+                        <div class="row gy-4">
+                            <% products.slice(-6).reverse().forEach(product => { %>
+                            <div class="col-md-4">
+                                <div class="auction-card">
+                                    <div class="card-image">
+                                        <img src="<%= product.image %>" class="img-fluid" alt="auction-card-img">
+                                        <div class="timer-wrapper">
+                                            <div class="timer-inner"> -->
+                                                <!-- Add logic to calculate remaining time -->
+                                                <!-- Assuming product.biddingEndTime is the timestamp for bidding end time -->
+                                                <!-- <span class="days">
+                                                    <span class="">0</span>
+                                                    <span class="">D</span>
+                                                </span>:
+                                                <span class="hours">
+                                                    <span class="">1</span>
+                                                    <span class="">H</span>
+                                                </span>:
+                                                <span class="minutes">
+                                                    <span class="">60</span>
+                                                    <span class="">M</span>
+                                                </span>:
+                                                <span class="seconds">
+                                                    <span class="">40</span>
+                                                    <span class="">S</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+                                        <h4><%= product.name %></h4>
+                                        <p>Current bid <span>₹ <%= product.currentBid %></span></p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <a href="/<%= product._id %>" class="primary-btn">Bid Now</a> -->
+                                            <!-- Add like button functionality as needed -->
+                                            <!-- <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+                 -->
+                 <div class="row gy-4">
+                    <div class="auction-card-small">
+                        <div class="row gy-4">
+                            <% products.forEach(product => { %>
+                                <% if (product.auctionStatus === 'open' && product.adminStatus === 'approved') { %>
+                                    <div class="col-md-4">
+                                        <div class="auction-card">
+                                            <div class="card-image">
+                                                <img src="<%= product.image %>" class="img-fluid" alt="auction-card-img">
+                                                <div class="timer-wrapper">
+                                                    <div id="countdown_<%= product._id %>">
+                                                        <!-- Countdown timer will be updated dynamically here -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-content">
+                                                <h4><%= product.name %></h4>
+                                                <!-- Placeholder for current bid -->
+                                               
+                                                    <p id="current-bid-<%= product._id %>">Current bid: ₹ <%= product.currentBid %></p>
+                                               
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <a href="/<%= product._id %>" class="primary-btn">Bid Now</a>
+                                                    <!-- Add like button functionality as needed -->
+                                                    <!-- <button class="like-btn"><i class="fa-regular fa-heart"></i></button> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        // Set the end time of the auction
+                                        var endTime_<%= product._id %> = new Date("<%= product.biddingEndTime %>").getTime();
+                
+                                        // Update the countdown timer every second
+                                        var x_<%= product._id %> = setInterval(function () {
+                                            // Get the current time
+                                            var now = new Date().getTime();
+                
+                                            // Calculate the remaining time
+                                            var distance = endTime_<%= product._id %> - now;
+                
+                                            // Calculate days, hours, minutes, and seconds
+                                            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                                            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                                            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                                            // Update the countdown timer in the HTML
+                                            document.getElementById("countdown_<%= product._id %>").innerHTML = 
+                                                "<span>" + days + "D</span>:" +
+                                                "<span>" + hours + "H</span>:" +
+                                                "<span>" + minutes + "M</span>:" +
+                                                "<span>" + seconds + "S</span>";
+                
+                                            // If the countdown is finished, display "EXPIRED" and clear the interval
+                                            if (distance < 0) {
+                                                clearInterval(x_<%= product._id %>);
+                                                document.getElementById("countdown_<%= product._id %>").innerHTML = "EXPIRED";
+                                            }
+                                        }, 1000);
+                                    </script>
+                                <% } %>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+                          
+                      </div>
+                    </div>
+                  </div>
+                  
+
+
+                                <!-- <div class="col-md-6">
+                                    <div class="auction-card">
+                                        <div class="card-image">
+                                            <img src="assets/images/live-auction-2.png" class="img-fluid"
+                                                alt="auction-card-img">
+                                            <div class="timer-wrapper">
+                                                <div class="timer-inner">
+                                                    <span class="days">
+                                                        <span class="">0</span>
+                                                        <span class="">D</span>
+                                                    </span>:
+                                                    <span class="hours">
+                                                        <span class="">1</span>
+                                                        <span class="">H</span>
+                                                    </span>:
+                                                    <span class="minutes">
+                                                        <span class="">60</span>
+                                                        <span class="">M</span>
+                                                    </span>:
+                                                    <span class="seconds">
+                                                        <span class="">40</span>
+                                                        <span class="">S</span>
+                                                    </span>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <h4>Old aged Small Wooden Trinket</h4>
+                                            <p>Current bid <span>₹ 50000</span></p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <a href="bid-detail" class="primary-btn">Bid Now</a>
+                                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-6">
+                                    <div class="auction-card">
+                                        <div class="card-image">
+                                            <img src="assets/images/live-auction-3.png" class="img-fluid"
+                                                alt="auction-card-img">
+                                            <div class="timer-wrapper">
+                                                <div class="timer-inner">
+                                                    <span class="days">
+                                                        <span class="">0</span>
+                                                        <span class="">D</span>
+                                                    </span>:
+                                                    <span class="hours">
+                                                        <span class="">1</span>
+                                                        <span class="">H</span>
+                                                    </span>:
+                                                    <span class="minutes">
+                                                        <span class="">60</span>
+                                                        <span class="">M</span>
+                                                    </span>:
+                                                    <span class="seconds">
+                                                        <span class="">40</span>
+                                                        <span class="">S</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <h4>1987’s Mediterranean style home</h4>
+                                            <p>Current bid <span>₹ 50000</span></p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <a href="bid-detail" class="primary-btn">Bid Now</a>
+                                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <!-- <div class="col-md-6">
+                                    <div class="auction-card">
+                                        <div class="card-image">
+                                            <img src="assets/images/live-auction-4.png" class="img-fluid"
+                                                alt="auction-card-img">
+                                            <div class="timer-wrapper">
+                                                <div class="timer-inner">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <h4>Café Racer: the vintage spirit</h4>
+                                            <p>Current bid <span>₹ 50000</span></p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <a href="bid-detail" class="primary-btn">Bid Now</a>
+                                                <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            <!-- </div>
+                        </div>
+                    </div> -->
+                    <div class="col-12 text-center">
+                        <a href="browse-bid" class="primary-btn dark-btn mt-3 mt-md-5">VIEW ALL BID</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="outer-gap inner-gap bg-light">
+            <div class="container">
+                <h2 class="section-title">Upcoming Auctions</h2>
+                <div class="row gy-4">
+                    <!-- <div class="col-lg-6">
+                        <div class="upcoming-auction position-relative bg-orange">
+                            <div class="row gy-4">
+                                <div class="col-md-6 text-white position-relative">
+                                    <h3 class="upcoming-title line-clamp line-clamp-2">Final Match Football Studs</h3>
+                                    <p class="line-clamp line-clamp-4">Experience the timeless charm of the vintage
+                                        coffee bean grinder, meticulously crafted to bring you the perfect grind for a
+                                        rich and flavorful cup of coffee.</p>
+                                    <a href="bid-detail" class="primary-btn light-btn">Bid Now</a>
+                                </div>
+                                <div class="col-md-6 position-relative">
+                                    <div class="upcoming-img">
+                                        <img src="assets/images/thumb-auction-img-3.png"
+                                            class="w-100 h-100 object-contain" alt="Final Match Football Studs">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div id="upcomingAuctionsContainer" class="row gy-4">
+                        <% upcomingAuctions.slice(0, 2).forEach(function(auction, index) { %>
+                            <% if (auction.adminStatus === 'approved' && auction.biddingStartTime > new Date()) { %>
+                                <div class="col-lg-6">
+                                    <div class="upcoming-auction position-relative bg-blue">
+                                        <div class="row gy-4">
+                                            <div class="col-md-6 text-white position-relative">
+                                                <h3 class="upcoming-title line-clamp line-clamp-2"><%= auction.name %></h3>
+                                                <p class="line-clamp line-clamp-4"><%= auction.description %></p>
+                                                <!-- Add countdown timer logic here -->
+                                                <% const timeUntilStartInSeconds = Math.max(Math.floor((new Date(auction.biddingStartTime) - new Date()) / 1000), 0); %>
+                                                <% const daysLeft = Math.floor(timeUntilStartInSeconds / (24 * 3600)); %>
+                                                <% const hoursLeft = Math.floor((timeUntilStartInSeconds % (24 * 3600)) / 3600); %>
+                                                <p>Time until start: <%= daysLeft %> days <%= hoursLeft %> hours left</p>
+                                                <!-- <a href="bid-detail" class="primary-btn light-btn">Bid Now</a> -->
+                                            </div>
+                                            <div class="col-md-6 position-relative">
+                                                <div class="upcoming-img">
+                                                    <img src="<%= auction.image %>" class="w-100 h-100 object-contain" alt="<%= auction.name %>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% } %>
+                        <% }); %>
+                    </div>
+                    
+                    <div id="viewAllButtonContainer" style="display: flex; justify-content: center; margin-top: 100px;">
+                        <button id="viewAllButton" class="primary-btn dark-btn mt-3 mt-md-5">View All</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        <section class="recent-auction outer-gap">
+            <div class="container">
+                <h2 class="section-title">Expired Auctions</h2>
+                <div class="auction-card-small">
+                    <div class="row gy-4 justify-content-center">
+                        <div id="closedAuctionsContainer" class="row">
+                            <% closedAuctions.forEach(product => { %>
+                                <div class="col-md-4">
+                                    <div class="auction-card">
+                                        <div class="card-image">
+                                            <img src="<%= product.image %>" class="img-fluid" alt="auction-card-img">
+                                            <div class="timer-wrapper">
+                                                <div class="timer-inner">
+                                                    <!-- Display "Expired" if auction has ended -->
+                                                    <span class="expired">Expired</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-content">
+                                            <h4><%= product.name %></h4>
+                                            <!-- Show "Expired" instead of bid information -->
+                                            <p class="expired">Auction Ended</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }); %>
+                        </div>
+        
+                        <!-- Button to view all closed auctions -->
+                        <div id="viewAllClosedAuctionsButtonContainer" class="row justify-content-center">
+                            <button id="viewAllClosedAuctionsButton" class="primary-btn dark-btn mt-3">View All Closed Auctions</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- <section class="outer-gap">
+            <div class="container">
+                <h2 class="section-title">Trusted By 500+ Businesses</h2>
+                <div class="row gy-4 text-center align-items-center">
+                    <div class="col-6 col-md-4 col-xl-2">
+                        <div class="client-logo py-2">
+                            <img src="assets/images/client-logo-1.png" class="w-100" alt="client-logo">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-xl-2">
+                        <div class="client-logo py-2">
+                            <img src="assets/images/client-logo-2.png" class="w-100" alt="client-logo">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-xl-2">
+                        <div class="client-logo py-2">
+                            <img src="assets/images/client-logo-3.png" class="w-100" alt="client-logo">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-xl-2">
+                        <div class="client-logo py-2">
+                            <img src="assets/images/client-logo-4.png" class="w-100" alt="client-logo">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-xl-2">
+                        <div class="client-logo py-2">
+                            <img src="assets/images/client-logo-5.png" class="w-100" alt="client-logo">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-xl-2">
+                        <div class="client-logo py-2">
+                            <img src="assets/images/client-logo-6.png" class="w-100" alt="client-logo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+        <section class="outer-gap">
+            <div class="container">
+                <div class="subscribe-wrapper position-relative">
+                    <div class="row align-items-center justify-content-center position-relative">
+                        <div class="col-lg-6 text-white">
+                            <h3 class="display-6 fw-bold mb-2">Want to Join Us?</h3>
+                            <p class="mb-3">"Join our online auction community today and start bidding on a wide range of products! Experience the thrill of competitive bidding from the comfort of your home. Sign up now to unlock exclusive deals and participate in exciting auctions."</p>
+                            <form id="join-form" class="subscribe-form">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email">
+                                <button type="submit" class="rounded-circle bg-dark">
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </form>
+                            <!-- Display message container -->
+                            <div id="join-message-container"></div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="subscribe-img d-none d-lg-block">
+                                <img src="assets/images/join-us.png" class="w-100 rounded-5" alt="subscribe-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Main Content End !-->
+    <!-- Footer Start !-->
+    
+    <%-include ('footer')%>
+    
+    <!-- Add this script at the end of your HTML or include it in a separate JavaScript file -->
+    <script>
+        // Function to fetch the latest bid for a specific product
+        function fetchLatestBid(productId) {
+            fetch(`/api/bid/latest/${productId}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Update the current bid for the specific product
+                    const currentBidElement = document.getElementById("current-bid-" + productId);
+                    if (currentBidElement) {
+                        currentBidElement.innerHTML = `Current bid: ₹ ${data.amount}`;
+                    }
+                })
+                .catch(error => console.error('Error fetching latest bid:', error));
+        }
+    
+        // Call the function initially for each product to fetch the latest bid
+        <% products.forEach(product => { %>
+            
+            fetchLatestBid("<%= product._id %>");
+           
+        <% }) %>
+    
+        // Update the current bid every few seconds for each product
+        setInterval(() => {
+            <% products.forEach(product => { %>
+                
+                fetchLatestBid("<%= product._id %>");
+                
+            <% }) %>
+        }, 1000); // Update every 5 seconds (adjust as needed)
+    </script>
+    <script>
+        document.getElementById('viewAllButton').addEventListener('click', function() {
+            var upcomingAuctionsContainer = document.getElementById('upcomingAuctionsContainer');
+            var viewAllButtonContainer = document.getElementById('viewAllButtonContainer');
+            
+            // Remove the "View All" button
+            viewAllButtonContainer.parentNode.removeChild(viewAllButtonContainer);
+            
+            // Render all upcoming auctions
+            upcomingAuctions.forEach(function(auction, index) {
+                if (auction.adminStatus === 'approved' && auction.biddingStartTime > new Date()) {
+                    var auctionElement = document.createElement('div');
+                    auctionElement.classList.add('col-lg-6');
+                    auctionElement.innerHTML = `
+                        <div class="upcoming-auction position-relative bg-blue">
+                            <div class="row gy-4">
+                                <div class="col-md-6 text-white position-relative">
+                                    <h3 class="upcoming-title line-clamp line-clamp-2">${auction.name}</h3>
+                                    <p class="line-clamp line-clamp-4">${auction.description}</p>
+                                    <p>Time until start: ${daysLeft} days ${hoursLeft} hours left</p>
+                                </div>
+                                <div class="col-md-6 position-relative">
+                                    <div class="upcoming-img">
+                                        <img src="${auction.image}" class="w-100 h-100 object-contain" alt="${auction.name}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    upcomingAuctionsContainer.appendChild(auctionElement);
+                }
+            });
+        });
+    </script>
+    <script>
+        document.getElementById('viewAllClosedAuctionsButton').addEventListener('click', function() {
+            var closedAuctionsContainer = document.getElementById('closedAuctionsContainer');
+            var viewAllClosedAuctionsButtonContainer = document.getElementById('viewAllClosedAuctionsButtonContainer');
+            
+            // Remove the "View All" button
+            viewAllClosedAuctionsButtonContainer.parentNode.removeChild(viewAllClosedAuctionsButtonContainer);
+            
+            // Render all closed auctions
+            products.forEach(function(product) {
+                if (product.auctionStatus === 'closed') {
+                    var auctionCardElement = document.createElement('div');
+                    auctionCardElement.classList.add('col-md-4');
+                    auctionCardElement.innerHTML = `
+                        <div class="auction-card">
+                            <div class="card-image">
+                                <img src="${product.image}" class="img-fluid" alt="auction-card-img">
+                                <div class="timer-wrapper">
+                                    <div class="timer-inner">
+                                        <!-- Display "Expired" if auction has ended -->
+                                        <span class="expired">Expired</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <h4>${product.name}</h4>
+                                <!-- Show "Expired" instead of bid information -->
+                                <p class="expired">Auction Ended</p>
+                            </div>
+                        </div>
+                    `;
+                    closedAuctionsContainer.appendChild(auctionCardElement);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
