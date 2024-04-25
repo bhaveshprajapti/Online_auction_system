@@ -180,22 +180,22 @@ router.get('/winner', checkAuth, async (req, res) => {
 
       // Send email to the winner
       const transporter = nodemailer.createTransport({
-        service: 'smtp.gmail.com',
+        service: 'gmail',
         port: 465, 
         secure: true,
         logger:true,
         debugger:true,
         secureconnection:false,
         auth: {
-          user: 'dhruvilshah884@gmail.com',
-          pass: 'wkuv sjqf bsxy bqqj'
+          user: 'pbtechworld@gmail.com',
+          pass: 'mcye ytvc tikr cuuc'
         },tls:{
           rejectUnauthorized:true
         }
       });
 
       const mailOptions = {
-          from: 'dhruvilshah884@gmail.com',
+          from: 'pbtechworld@gmail.com',
           to: bid.user.email, // Winner's email address
           subject: 'Congratulations! You Won the Auction',
           text: `Congratulations! You have won the auction for ${bid.product.name} with a bid amount of ${bid.amount}.`,
